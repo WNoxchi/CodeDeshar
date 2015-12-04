@@ -42,3 +42,10 @@ b = 5
 (+ 0 9)
 (9)
 
+______________
+;   my code for the Fibonacci series [Scheme]:
+
+(define (Fib n)
+    (cond ((= n 0) 0)
+          ((= n 1) 1)
+          (else (+ (Fib (- n 1)) (Fib (- n 2))))))
