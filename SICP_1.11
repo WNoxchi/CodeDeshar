@@ -13,6 +13,7 @@
 
 ;ITERATIVE:
 ;need to understand how this works
+; from: http://community.schemewiki.org/?sicp-ex-1.11
 
 (define (f n)
   (define (iter a b c count)
