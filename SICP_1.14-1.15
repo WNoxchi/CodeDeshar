@@ -104,3 +104,6 @@ Growth in complexity in both space and time for (sine a) is: O(log(a))  , or: O(
 
 A:	n = 5
 B: Space & Time: O(log(n))
+
+;
+-*- mode: scheme;-*-
