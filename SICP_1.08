@@ -55,6 +55,5 @@ Structure: what will need what:
   (cube-root-iter 1.0 x))
 
 
-
 ;
 -*- mode: scheme;-*-
