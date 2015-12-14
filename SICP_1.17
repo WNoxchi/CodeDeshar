@@ -95,3 +95,6 @@
 
 (define (halve x) (/ x 2))
 (define (double x) (+ x x))
+
+;
+-*- mode: scheme;-*-
