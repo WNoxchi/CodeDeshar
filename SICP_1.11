@@ -115,3 +115,6 @@
 	(if (< count 3)
 		a
 		(iter (+ a (* 2 b) (* 3 c)) a b (- count 1)) ))
+
+;
+-*- mode: scheme;-*-
