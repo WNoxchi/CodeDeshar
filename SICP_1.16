@@ -132,3 +132,6 @@ working procedure:
 		  ((< exp 0) '(Error: input positive integer exponents only))
 		  (else (iter base exp 1))) )
 	
+
+;
+-*- mode: scheme;-*-
