@@ -1,4 +1,5 @@
 ; SICP 1.17
+;Design a multiplication procedure analogous to fast-expt that uses a log number of steps
 
 (define (sixmult a b)
     (cond ((= b 0) 0)
