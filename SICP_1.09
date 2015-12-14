@@ -16,10 +16,10 @@ b = 5
  (inc (inc (inc (+ 1 5))))
  (inc (inc (inc (inc (+ (dec 1) 5)))))
  (inc (inc (inc (inc (+ 0 5)))))
- (inc (inc (inc (inc (5))))))
- (inc (inc (inc (6)))))
- (inc (inc (7))))
- (inc (8)))
+ (inc (inc (inc (inc (5)))))
+ (inc (inc (inc (6))))
+ (inc (inc (7)))
+ (inc (8))
  (9)
 
 ; a tip off that this is recursive is that the addition procedure calls itself at the end while nested within an expression.
@@ -51,4 +51,4 @@ ______________
           (else (+ (Fib (- n 1)) (Fib (- n 2))))))
 
 ;
--*- mode: Scheme;-*-
+-*- mode: scheme;-*-
