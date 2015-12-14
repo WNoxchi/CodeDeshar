@@ -5,8 +5,8 @@
 (define (ruski x y)
 	(define (sposob x y a)
 		(cond ((< x 1) a)
-			  ((even? x) (sposob (halve x) (double y) a))
-			  (else (+ (sposob (halve x) (double y) (+ a y)))) ))
+		  ((even? x) (sposob (halve x) (double y) a))
+		  (else (+ (sposob (halve x) (double y) (+ a y)))) ))
 	(sposob x y 0))
 
 (define (halve x) (/ x 2))
