@@ -4,17 +4,17 @@
 	(fib-iter 1 0 0 1 n))
 (define (fib-iter a b p q count)
 	(cond ((= count 0) b)
-		  ((even? count)
-		   (fib-iter a
-					 b
-					(+ (* p p) (* q q))		; compute p'  <<-- code goes here
-					(+ (* 2 p q) (* q q))	; compute q'  <<-- code goes here
-					(/ count 2)))
-		  (else (fib-iter (+ (* b q) (* a q) (* a p))
-						  (+ (* b p) (* a q))
-						  p
-						  q
-						  (- count 1)))))
+	  ((even? count)
+	   (fib-iter a
+				 b
+				(+ (* p p) (* q q))		; compute p'  <<-- code goes here
+				(+ (* 2 p q) (* q q))	; compute q'  <<-- code goes here
+				(/ count 2)))
+	  (else (fib-iter (+ (* b q) (* a q) (* a p))
+					  (+ (* b p) (* a q))
+					  p
+					  q
+					  (- count 1)))))
 ;
 a <-- bq + aq + ap
 b <-- bp + aq
@@ -56,3 +56,4 @@ With a system of equations defined, use substitution to simplify:
 
 
 ;
+-*- mode: scheme;-*-
