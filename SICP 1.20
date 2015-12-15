@@ -31,7 +31,7 @@
     40
     (gcd (mod 206 40) (mod 40 (mod 206 40))))
 
->>(gcd (mod 206 40) (mod 40 (mod 206 40))))
+>>(gcd (mod 206 40) (mod 40 (mod 206 40)))
 
 (if (= (mod 40 (mod 206 40)) 0)
     (mod 206 40)
