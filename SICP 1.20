@@ -1,4 +1,130 @@
 ; SICP 1.20
+; Normal-order evaluation of (gcd a b)  -- 2nd attempt notes
+
+(define (gcd a b)
+    (if (= b 0)
+        a
+        (gcd b (mod a b))))
+
+>>>(gcd 206 40)
+
+>>(gcd 206 40)
+
+(if (= b 0)
+    a
+    (gcd b (mod a b)))
+
+(if (= 40 0)
+    206
+    (gcd 40 (mod 206 40)))
+
+>>(gcd 40 (mod 206 40))
+
+(if (= (mod 206 40) 0)
+    40
+    (gcd (mod 206 40) (mod 40 (mod 206 40))))
+
+;   evaluate remainder in conditional:
+;   (mod 206 40) = 6
+
+(if (= 6 0)
+    40
+    (gcd (mod 206 40) (mod 40 (mod 206 40))))
+
+>>(gcd (mod 206 40) (mod 40 (mod 206 40))))
+
+(if (= (mod 40 (mod 206 40)) 0)
+    (mod 206 40)
+    (gcd (mod 40 (mod 206 40))
+         (mod (mod 206 40) 
+              (mod 40 (mod 206 40)))))
+
+; xjintsa we evaluate remainder in conditional:
+; (mod 40 (mod 206 40)) = (mod 40 6) = 4
+; 2 remainders evald
+
+(if (= 4 0)
+    (mod 206 40)
+    (gcd (mod 40 (mod 206 40))
+         (mod (mod 206 40)
+              (mod 40 (mod 206 40)))))
+
+; I'm starting to get a feel for normal-order and Scheme's parenthesis nesting
+
+>>(gcd (mod 40 (mod 206 40))
+       (mod (mod 206 40)
+            (mod 40 (mod 206 40))))
+
+(if (= (mod (mod 206 40)
+            (mod 40 (mod 206 40)))
+       0)
+       (mod 40 (mod 206 40))
+       (gcd (mod (mod 206 40)
+                 (mod 40 (mod 206 40))
+            (mod (mod 40 (mod 206 40))
+                 (mod (mod 206 40)
+                      (mod 40 (mod 206 40))))))
+
+; Again evaluate remainders "mod" in conditional:
+; (mod (mod 206 40) (mod 40 (mod 206 40))) = 
+; = (mod 6 (mod 40 6))  = (mod 6 4) = 2
+; 4 remainders evald
+
+( if (= 2 0)
+     (mod 40 (mod 206 40))
+     (gcd (mod (mod 206 40)
+               (mod 40 (mod 206 40)))
+          (mod (mod 40 (mod 206 40))
+               (mod (mod 206 40))
+                    (mod 40 (mod 206 40))))))
+
+>>(gcd (mod (mod 206 40)
+            (mod 40 (mod 206 40)))
+       (mod (mod 40 (mod 206 40))
+            (mod (mod (mod 206 40))
+                 (mod 40 (mod 206 40)))))
+
+(if (= (mod (mod 40 (mod 206 40))
+            (mod (mod 206 40)
+                 (mod 40 (mod 206 40))))
+       0)
+       (mod (mod 206 40)
+            (mod 40 (mod 206 40)))
+       (gcd (mod (mod 40 (mod 206 40))
+                 (mod (mod 206 40)))
+                      (mod 40 (mod 206 40))))
+            (mod (mod (mod 206 40)
+                      (mod 40 (mod 206 40)))
+                 (mod (mod 40 ((mod 206 40))
+                      (mod (mod 206 40))
+                           (mod 40 (mod 206 40)))))))
+
+; Evaluate nested remainder ops in conditional:
+; (mod (mod 40 (mod 206 40)) (mod (mod 206 40) (mod 40 (mod 206 40))))  = 
+; = (mod (mod 40 6) (mod 6 (mod 40 6))) = (mod 4 (mod 6 4)) = (mod 4 2) = 0
+; 7 remainders evald
+
+(if (= 0 0) 0
+    (mod (mod 206 40)
+         (mod 40 (mod 206 40)))
+    (gcd (mod (mod 40 (mod 206 40))
+              (mod (mod 206 40)
+                   (mod 40 (mod 206 40))))
+         (mod (mod (mod 206 40)
+                   (mod 40 (mod 206 40)))
+              (mod (mod 40 (mod 206 40))
+                   (mod (mod 206 40)
+                        (mod 40 (mod 206 40)))))))
+
+>>(mod (mod 206 40)
+       (mod 40 (mod 206 40)))
+
+; eval xjara tjahara set of remainder ops:
+; (mod (mod 206 40) (mod 40 (mod 206 40))) = (mod 6 (mod 40 6)) = (mod 6 4) = 2
+; 18 total remainders evald.
+
+;----------------------------------------------------------
+; SICP 1.20
 
 ; First stage notes:
 
