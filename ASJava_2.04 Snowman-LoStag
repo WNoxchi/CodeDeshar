@@ -33,3 +33,5 @@
 		 add(new GLabel("A Kavkaz snowman, by W. Noxchi."), 100, 300);
 	 }
 }
+
+-*- mode:java;-*-
