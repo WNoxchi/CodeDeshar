@@ -1,0 +1,35 @@
+//  CS106A - Art & Sci of Java: exercises
+// 2.04:  draw a snowman
+
+/*
+ * File: LoStag.java
+ * LoStag: (Noxchi) snowman
+ * Draws a snowman
+ */
+
+ import acm.graphics.*;
+ import acm.program.*;
+
+ public class LoStag extends GraphicsProgram {
+	 public void run() {
+		 	//	body
+		 add(new GOval(320, 60, 40, 40));
+		 add(new GOval(300, 100, 80, 80));
+		 add(new GOval(280, 180, 120, 120));
+		 	//	buttons
+		 add(new GRect(335, 145, 10, 10));
+		 add(new GRect(335, 130, 10, 10));
+		 add(new GRect(335, 115, 10, 10));
+		 	//	papaxa
+		 add(new GRect(317, 12, 45, 50));
+		 	//	face
+		 add(new GLabel("v"), 337, 89);
+		 add(new GOval(326, 69, 10, 10));
+		 add(new GOval(342, 69, 10, 10));
+		 add(new GRect(326, 69, 10, 2));
+		 add(new GRect(342, 69, 10, 2));
+		 add(new GRect(332, 93, 17, 2));
+		 	//	signature
+		 add(new GLabel("A Kavkaz snowman, by W. Noxchi."), 100, 300);
+	 }
+}
