@@ -223,3 +223,5 @@ public class InterestCalc extends ConsoleProgram {
   }
   DecimalFormat money = new DecimalFormat("$0.00");   //  declaring a 'money' object to use DecimalFormat on chosen values.
 }
+
+//  -*- mode:java;-*-
