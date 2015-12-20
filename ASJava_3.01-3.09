@@ -1,0 +1,225 @@
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  3.09:
+ *  Start:  20-Dec-2015 14:23 | Finished: 20-Dec-2015 15:24
+ */
+
+import acm.program.*;
+
+public class NurseryRhyme extends ConsoleProgram {
+  public void run() {
+    println("This program will figure out how many in the nursery rhyme are coming from St. Ives: ");
+    println("\n");
+    println(Rhyme);
+    println("\n");
+    println("One man:" + oneman);
+    println("Seven wives: " + wives);
+    println("Seven sacks: " + sacks);
+    println("Seven cats: " + cats);
+    println("Seven kits: " + kits);
+    println("And all of them together: " + TOTAL);
+    }
+    int oneman = 1;
+    int wives = (oneman * 7);
+    int sacks = (wives * 7);
+    int cats = (sacks * 7);
+    int kits = (cats * 7);
+    int TOTAL = kits + cats + sacks + wives + oneman;
+    String Rhyme = ("As I was going to St. Ives, \nI met a man with seven wives, \nEach wife had seven sacks, \nEach sack had seven cats, \nEach cat had seven kits: \nKits, cats, sacks, and wives, \nHow many were going to St. Ives?");
+
+}
+
+
+/*  this example pisses me off. Am I supposed to write a program that multiplies 7. 7 times? or One that
+ *  counts how many times "seven" appears in a string and raise 7 to that power?
+ *  If it's the first: holy shit let's just play with stuffed animals.
+ *  If it's the second: the book didn't cover anything remotely close to that complex... might as well
+ *  ditch the book and stick to StackExchange and YouTube...
+ *  Whatever. It gets done.
+ *  I think the version I have written now above is in line with what the author was asking for.
+ *  Fits the current level of difficulty in the book too. Oh logic issues..
+ *  Old Code:
+
+public class NurseryRhyme extends ConsoleProgram {
+  public void run() {
+    println("This program will figure out how many in the nursery rhyme are coming from St. Ives: ");
+    println("\n");
+    println(Rhyme);
+    println("\n");
+    println("The group size leaving St. Ives is " + TOTAL + ".");
+    }
+
+  String Rhyme = ("As I was going to St. Ives, \nI met a man with seven wives, \nEach wife had seven sacks, \nEach sack had seven cats, \nEach cat had seven kits: \nKits, cats, sacks, and wives, \nHow many were going to St. Ives?");
+  int index = input.indexOf("seven");
+  int TOTAL = 1;
+  int count = 0;
+  while (index != -1) {
+    count++;
+    input = input.substring(index + 1);
+    index = input.indexOf("seven");
+  }
+  while (count > 1) {
+    TOTAL *= 7;
+    count -= 1;
+  }
+}
+
+//----------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  3.08: write a program that computes the average of 4 integers
+ *  Start:  20-Dec-2015 14:19 | Finish: 20-Dec-2015 14:23
+ */
+
+import acm.program.*;
+
+public class Average4Ints extends ConsoleProgram {
+  public void run() {
+    println("This program will average 4 integers. ");
+    int t1 = readInt("Integer 1: ");
+    int t2 = readInt("Integer 2: ");
+    int t3 = readInt("Integer 3: ");
+    int t4 = readInt("Integer 4: ");
+    double AVERAGE = (t1 + t2 + t3 + t4) / 4.0;
+    println("Average: " + AVERAGE + ".");
+  }
+}
+
+//----------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  3.07: write a program that converts kilograms to points and ounces.
+ *  Start:  20-Dec-2015 14:10 | Finish: 20-Dec-2015 14:19
+ */
+
+import acm.program.*;
+
+public class PoundsToKilos extends ConsoleProgram {
+  public void run() {
+    println("This program converts pounds and ounces to kilograms.");
+    double POUNDS = readInt("Pounds: ");
+    double OUNCES = readDouble("Ounces: ");
+    double TOTALPOUNDS = POUNDS + (OUNCES / OUNCESperPOUND);
+    double KILOS = TOTALPOUNDS / POUNDSperKILO;
+    println("Kilograms: " + KILOS + ".");
+  }
+  double OUNCESperPOUND = 16.0;
+  double POUNDSperKILO = 2.20462;
+}
+
+//  lots of doubles.. whatever.
+
+//----------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  3.06
+ *  Start:  20-Dec-2015 14:06 | Finish: 20-Dec-2015 14:09
+ */
+
+ import acm.program.*;
+
+ public class bullshitmath extends ConsoleProgram {
+   public void run() {
+     println("ASJava exercise 3.06 result: " + bullshit);
+   }
+   double bullshit = 4 + 9 - 2 * 16 + 1 / 3 * 6 * 67 + 8 * 2 - 3 + 26 - 1 / 34 + 3 / 7 + 2 - 5 ;
+ }
+
+//----------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  3.05: write a program that converts Fahrenheit to Celcius
+ *  Start:  20-Dec-2015 14:00 | Finish: 20-Dec-2015 14:04
+ */
+
+ import acm.program.*;
+
+ public class FahrenheitToCelcius extends ConsoleProgram {
+   public void run() {
+     println("This program will convert degrees Fahrenheit to Celcius.");
+     double Fahr = readDouble("Degrees Fahrenheit: ");
+     double Celc = (5.0/9.0) * (Fahr - 32);
+     println(Celc + " Degrees Celcius.");
+   }
+ }
+
+//----------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  3.04: write a program that asks for the radius of a circle and computes the are of that circle (A)
+ *  Start:  20-Dec-2015 13:47 | Finish: 20-Dec-2015 13:55
+ */
+
+import acm.program.*;
+
+public class CircleArea extends ConsoleProgram {
+  public void run() {
+    println("This program will approximate the area of a circle, given its radius.");
+    double radius = readDouble("Enter circle radius: ");
+    double area = PI * (radius * radius);
+    println("Circle Area: " + area + ".");
+  }
+  double PI = 3.14159;
+}
+
+//----------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  3.03: extend 3.02 s.t. it displays balance after 1 year and 2 years.
+ *  Start:  20-Dec-2015 13:25 | Finish: 20-Dec-2015 13:46
+ */
+
+ import acm.program.*;
+ import java.text.DecimalFormat;     //  need to import DecimalFormat class to truncate to 2 dec places
+
+ public class InterestCalc2years extends ConsoleProgram {
+   public void run() {
+     println("Enter account balance and interest rate. New balance in one year's time will be calculated.");
+     double BALANCE = readDouble("Account Balance: ");
+     double INTEREST = readDouble("(Percentage) Interest Rate: ");
+//     double KERLOBALANCE = BALANCE += BALANCE * (INTEREST / 100.0);
+//     double KERLOBALANCE_SHI = BALANCE + (BALANCE + (BALANCE * (INTEREST / 100.0)) * (INTEREST / 100.0));
+     double KERLOBALANCE = BALANCE + BALANCE * (INTEREST / 100.0);
+     double KERLOBALANCE_SHI = KERLOBALANCE + KERLOBALANCE * (INTEREST / 100.0);
+     println("Kerlo Balance Tsxa Sho'a: " + money.format(KERLOBALANCE) + ".");    //  this truncates KERLOBALANCE to 2 dec places
+     println("Kerlo Balance Tjaho Shialgha Sho: " + money.format(KERLOBALANCE_SHI) + ".");
+   }
+   DecimalFormat money = new DecimalFormat("$0.00");   //  declaring a 'money' object to use DecimalFormat on chosen values.
+ }
+
+/*  the definition of KERLOBALANCE_SHI is a total mess, but apparently you can use the result of other vars dep on read
+ *  inputs to define new vars... because I just get the same answer as the 1st year, for the 2nd year....
+ *  Anyway, until I get to it in study, I'll leave it as the mess it is.
+ *  OK, I had some confusion with how vars were added and computed. Fixed it and it works. Old buggy version left in to see changes.
+ */
+
+//----------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  3.02: write a program that reads in two numbers: an account balance and an annual interest
+ *  rate expressed as a percentage. Your program should then display the new balance after a
+ *  year. There are no deposits or withdrawals - just the interest payment.
+ *  Start: 20-Dec-2015 13:02  | 20-Dec-2015 13:21
+ */
+
+import acm.program.*;
+import java.text.DecimalFormat;     //  need to import DecimalFormat class to truncate to 2 dec places
+
+public class InterestCalc extends ConsoleProgram {
+  public void run() {
+    println("Enter account balance and interest rate. New balance in one year's time will be calculated.");
+    double BALANCE = readDouble("Account Balance: ");
+    double INTEREST = readDouble("(Percentage) Interest Rate: ");
+    double KERLOBALANCE = BALANCE += BALANCE * (INTEREST / 100.0);
+    println("Kerlo Balance Tsxa Sho'ah: " + money.format(KERLOBALANCE) + ".");    //  this truncates KERLOBALANCE to 2 dec places
+  }
+  DecimalFormat money = new DecimalFormat("$0.00");   //  declaring a 'money' object to use DecimalFormat on chosen values.
+}
