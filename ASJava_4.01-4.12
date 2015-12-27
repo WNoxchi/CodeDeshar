@@ -1,0 +1,416 @@
+//  -*- mode:java;-*-
+//----------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  4.12: Write a GraphicsProgram that creates a simple calendar diagram, using
+ *  technique from ex 4.11. Program should start the month on the right day of
+ *  the week and display only enough rows to fit the month.
+ *  Start:  27-Dec-2015 12:20 | Finish: 27-Dec-2015 14:35
+ */
+
+import acm.program.*;
+import acm.graphics.*;
+
+public class Calendar extends GraphicsProgram {
+  private static final int DaysInMonth = 31;
+  //  day of week the month starts (Kjir = 0 ; Shot = 6)
+  private static final int DayMonthStarts = 5;
+  private static final int DayWidth = 40;
+  private static final int DayHeight = 30;
+  public void run() {
+    for (int i = 0; i < 7; i++) {
+//      add(new GRect((0 + DayWidth * i), 0, DayWidth, DayHeight));
+//      if ((i - DayMonthStarts + 1) > 0) {
+//        add(new GLabel("" + (i - DayMonthStarts + 1)), (5 + DayWidth * i), (-17 + DayHeight * 1) );
+//      }
+      for (int j = 0; j <= ((DayMonthStarts + DaysInMonth)/7); j++){
+        int DayofMonth = ((i + 1) + (j * 7) - DayMonthStarts );
+        add(new GRect((0 + DayWidth * i), (0 + DayHeight * j), DayWidth, DayHeight));
+        if (DayofMonth > 0 && DayofMonth <= DaysInMonth){
+          add(new GLabel("" + ( (i + 1) + (j * 7) - DayMonthStarts )  ), (5 + DayWidth * i), (15 + DayHeight * j) );
+        }
+      }
+    }
+  }
+}
+//  27-Dec-2015 14:18 -- getting closer now.. just need a way to terminate right
+
+//  I'm fucking up how to assign day labels...
+
+//  		 add(new GLabel("..."), x-offset, y-offset);
+/*
+
+for (int i = 0; i < 7; i++) {
+  add(new GRect());
+  for (int j = 0; j < (((DaysInMonth + DayMonthStarts) / 7) + 0) ) {  //  unfinished
+    add(new GRect());
+    add(new GLabel(), 
+  }
+}
+ */
+ 
+//----------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  4.11: Write a GraphicsProgram that uses two nested for loops to create a
+ *  checkerboard in the top left of the canvas.
+ *  Start:  27-Dec-2015 11:21 | Finish: 27-Dec-2015 12:09
+ */
+
+import acm.program.*;
+import acm.graphics.*;
+
+public class Checkerboard extends GraphicsProgram {
+  public void run() {
+    add(new GRect(0, 0, 160, 160));    //  perimeter square needed for even board
+    for (int i = 0; i < 8; i += 2) {
+      add(new GRect(0, (0 + 20*i), 160, 20));
+      add(new GRect((0 + 20*i), (0), 20, 160));
+      add(new GOval((0 + 20*i), 0, 20, 20));
+      for (int j = 0; j < 8; j++) {
+        add(new GOval((20*(j % 2) + 20*i), (0 + 20*j), 20, 20));
+      }
+    }
+  }
+}
+
+//  Adjust sizes to make the board look pretty. (note: need offset factor for circles)
+//  GOval: (x-offset, y-offset, x-dim, y-dim)
+
+/*
+ * Old method using lines (unfinished):
+
+ for ( int i = 0; i < 9; i++) {
+   add(new GLine( (0 + 20*i), 0, (0 + 20*i), 160)); //  holy shit it works
+   add(new GLine( 0, (0 + 20*i), 160, (0 + 20*i)));    //  27-Dec-2015 11:36
+   for (int j = 0; j < 8; j += 2) {
+       add(new GOval((0 + 20*i), (0 + 20*j), 20, 20));
+   }
+ }
+
+ *
+ */
+
+
+//----------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  4.10: modify Fib to print all Fib numbers less than 10,000
+ *  Start:  27-Dec-2015 11:00 | Finish: 27-Dec-2015 11:04
+ */
+
+import acm.program.*;
+
+public class Fibn10000 extends ConsoleProgram {
+  public void run() {
+    int f1 = 0;
+    int f2 = 0;
+    int fn = 1;
+    while (fn < 10000) {
+      println(fn);
+      f2 = f1;
+      f1 = fn;
+      fn = f1 + f2;
+    }
+  }
+}
+
+
+//----------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  4.09: write the Fibonacci sequence
+ *  21 Dec 2015
+ */
+
+import acm.program.*;
+
+public class Fibn extends ConsoleProgram {
+  public void run() {
+    int n = readInt("Enter a stage of the Fibonacci sequence: ");
+    int f1 = 0;
+    int f2 = 0;   //  I don't think I can init f2 as = f1 + 1, in Java, not taking time to find out.
+    int fn = 1;
+    while (n > 0) {
+      f2 = f1;
+      f1 = fn;
+      fn = f1 + f2;
+      n -= 1;
+    }
+    println(fn);
+  }
+}
+//  ehh, good enough...
+
+//----------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  4.08: Rewrite Countdown to use a while loop instead of a for loop.
+ *  21 Dec 2015
+ */
+
+import acm.program.*;
+
+public class Countdown extends ConsoleProgram {
+  private static final int START = 10;
+  public void run() {
+    int t = START;
+    while (t > -1) {
+      println(t);
+      t -= 1;
+    }
+    println("Lift Off!");
+  }
+}
+
+/*
+//  Original:
+public class Countdown extends ConsoleProgram {
+  private static final int START = 10;
+  public void run() {
+    for (int t = START; t >= 0; t--) {
+      println(t);
+    }
+    println("Lift Off!");
+  }
+}
+ */
+
+//----------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  4.07: Rewrite DigitSum.java s.t. instead of adding the digits in the number, it returns a number with the digits reversed.
+ *  S.t.: 1729 becomes: 9271
+ *  21 Dec 2015
+ */
+
+import acm.program.*;
+
+public class RevDigit extends ConsoleProgram {
+  public void run() {
+    println("This program reverses the digits of an integer.");
+    int n = readInt("Enter a positive integer: ");
+    int result = 0;
+    int holder = 0;
+    while (n > 0) {
+      holder = n % 10;
+      result *= 10;
+      result += holder;
+      n /= 10;
+    }
+    println(result);
+  }
+}
+
+
+
+ /*
+ // Original:
+ public class DigitSum extends ConsoleProgram {
+   public void run() {
+     println("This program sums the digits in an integer.");
+     int n = readInt("Enter a positive integer: ");
+     int dsum = 0;
+     while (n > 0) {
+       dsum += n % 10;
+       n /= 10;
+     }
+     println("The sum of the digits is " + dsum);
+   }
+ }
+ */
+
+//----------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  4.06: Modify AddIntegerList to read a list of scores and return an average.
+ *  21 Dec 2015
+ */
+
+import acm.program.*;
+
+public class AddAvgIntegerList extends ConsoleProgram {
+  //  Specifies the value of the sentinel:
+  private static final int SENTINEL = -1;
+
+  //  runs the prgrm
+  public void run() {
+    println("This program adds a list of integers.");
+    println("Enter values, one per line, using " + SENTINEL);
+    println("to signal the end of the list.");
+    int total = 0;
+    int count = 0;
+    while (true) {
+      int value = readInt(" ? ");
+      if (value == SENTINEL) break;
+      total += value;
+      count += 1;
+    }
+    println("The total is " + total + ".");
+    println("The average is " + ((double) total / count) + ".");  // casting total as double to make sure no int division bugs
+  }
+}
+
+/*
+//  alternate while:
+
+  int value = readInt(" ? ");
+  while(value != SENTINEL) {
+    total += value;
+    value = readInt(" ? ");
+  }
+
+*/
+
+/*
+ *  Original:
+
+ public class AddIntegerList extends ConsoleProgram {
+   //  Specifies the value of the sentinel:
+   private static final int SENTINEL = 0;
+
+   //  runs the prgrm
+   public void run() {
+     println("This program adds a list of integers.");
+     println("Enter values, one per line, using " + SENTINEL);
+     println("to signal the end of the list.");
+     int total = 0;
+     while (true) {
+       int value = readInt(" ? ");
+       if (value == SENTINEL) break;
+       total += value;
+     }
+     println("The total is " + total + ".");
+   }
+ }
+
+ */
+
+//----------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  4.04: Write a program that displays the integers between 1 and 100 that are divisible by 6 or 7.
+ *  21 Dec 2015
+ */
+
+import acm.program.*;
+
+public class Int100SevenSix extends ConsoleProgram {
+  public void run() {
+    println("This program will print all integers between 1 and 100 that are divisible by 6 or 7.");
+    int n = 100;
+    while (n > 0) {
+      if (n % 7 == 0 || n % 6 == 0) {
+        println(n);
+        n -= 1;
+      } else {
+        n -= 1;
+      }
+    }
+  }
+}
+
+//----------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  4.03: Write a program that reads in a [+] int N, and calcs & displays the sum of the first N odd ints.
+ *  Aldashna: if N = 4 ==>> result: 16 = (1 + 3 + 5 + 7)
+ *  Start:  21-Dec-2015 14:08 | Finish: 21-Dec-2015 14:45
+ */
+
+import acm.program.*;
+public class SumNOddInts extends ConsoleProgram {
+  public void run() {
+    println("This program will return the sum of the first 'N' odd integers.");
+    int N = readInt("How many odd integers in ascending order do you want summed?: ");
+    println("The sum of the first " + N + " integers is: " + (N * N) + ".");
+  }
+}
+
+//  Oh wow, the sum of the first N odd ints is just N squared. Hah..
+/*  lol wrong program...
+public class SumOddInts extends ConsoleProgram {
+  public void run() {
+    println("This program will return the sum of all odd integers within a specified positive integer.");
+    int N = readInt("Integer: ");
+    int result = 0;
+    while (N > 0) {
+      if (N % 2 != 0) {
+        result += N;
+        N -= 1;
+      } else {
+        N -= 1;
+      }
+    }
+  }
+}
+*/
+
+//----------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  4.02: Write the Old Man song as a program.
+ *  Start:  21-Dec-2015 13:26 | Finish: 21-Dec-2015 14:05
+ */
+
+import acm.program.*;
+
+public class OldManSong extends ConsoleProgram {
+  public void run() {
+    int verse = 1;
+    String word = "";
+    for (int iterate = 1; iterate < 11; iterate++) {
+      switch (verse) {
+        case  1:  word = "thumb"; break;
+        case  2:  word = "shoe"; break;
+        case  3:  word = "knee"; break;
+        case  4:  word = "door"; break;
+        case  5:  word = "hive"; break;
+        case  6:  word = "sticks"; break;
+        case  7:  word = "heaven"; break;
+        case  8:  word = "pate"; break;
+        case  9:  word = "spine"; break;
+        case  10:  word = "shin"; break;
+      }
+      println("This Old Man, he played " + verse + ",");
+      println("He played knick-knack " + (verse == 7 ? "up to " : "on my ") + word + ".");
+      println("With a knick-knack, paddy-whack,");
+      println("Give your dog a bone,");
+      println("This Old Man came rolling home.\n");
+      verse ++;
+    }
+  }
+}
+
+//  I don't know how to pass variables as arguments into methods yet, or to declare global variables (which I prefer not to do)
+//  I really don't want ot put the entire switch in the for loop...
+//  Yeah it works but it's hideous.
+
+//----------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  4.01: Turn the beer song into a program.
+ *  Start:  21-Dec-2015 13:09 | Finish: 21-Dec-2015 13:20
+ */
+
+import acm.program.*;
+
+public class BeerSong extends ConsoleProgram {
+  public void run() {
+//    int beer = 99
+    for (int beer = 99; beer > 0; beer--) {
+      println(beer + (beer == 1 ? " bottle" : " bottles") + " of beer on the wall.\n" + beer + (beer == 1 ? " bottle" : " bottles") + " of beer.\nYou take one down, pass it around.\n" + (beer - 1) + (beer == 2 ? " bottle" : " bottles") + " of beer on the wall...\n\n");
+    }
+  }
+}
