@@ -1,0 +1,255 @@
+//-----------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  ex 5.08:  ASJ508YesNoXattar
+ *  -----------------------------
+ *  Write a predicate method yesNoQuestion(str) that prints out the string str
+ *  as a question for the user then waits for a response. If user enters "yes"
+ *  method returns true; "no": false. If the user does anything else: remind
+ *  user its looking for yes or no only.
+ *  Start:  31-Dec-2015 13:40 | Finish: 31-Dec-2015 14:02
+ */
+
+import acm.program.*;
+
+public class ASJ508noYesXattar extends ConsoleProgram {
+  public void run() {
+    String jop = readLine("Does Marcelus Wallas look like a bitch?: ");
+    noyesQuestion(jop);
+  }
+  private boolean noyesQuestion(String jop) {
+    if (jop.equals("yes")){
+      println("Mothafucka you just earned yourself a world of hurt... but I appreciate your honesty.");
+      return true;
+    }
+    if (jop.equals("no")){
+      println("Well.. Okay then. Glad we got that settled.");
+      return false;
+    }
+    if (jop.equals("what")){
+      println("WHAT?! Say What again, I dare you, I double dare you muthafucka. Say What one more Goddamn time!");
+      run();
+    }
+    else{
+      println("English muthafucka! I aksed you a yes or no question. Now I'm gonna aks you again.");
+      run();
+    }
+    return false;
+  }
+}
+
+
+
+
+//-----------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  ex 5.07:  ASJ507perfectSquare
+ *  -----------------------------
+ *  Write a method perfectSquare(n) that returns true if n is perfect square.
+ *  Dic ma dei: Math.sqrt() returns a double which is only an approximation.
+ *  Start:  31-Dec-2015 13:14 | Finish: 31-Dec-2015 13:34
+ */
+
+import acm.program.*;
+import static java.lang.Math.sqrt;
+
+public class ASJ507perfectSquare extends ConsoleProgram {
+  public void run() {
+    int n = readInt("Give me an integer and I'll tell you if it's perfect in every square way: ");
+    perfectSquare(n);
+  }
+  private bool perfectSquare(int n) {
+    if ((Math.sqrt(n)) % 1 > 0.0001 && (Math.sqrt(n)) % 1 < 0.9999) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+}
+
+//-----------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  ex 5.06:  ASJ506nDigits
+ *  -----------------------------
+ *  Write a method nDigits(n) that returns the number of digits in integer n.
+ *  Assume n is positive.
+ *  Start: 31-Dec-2015 13:03  | Finish: 31-Dec-2015 13:10
+ */
+
+import acm.program.*;
+
+public class ASJ506nDigits extends ConsoleProgram {
+  public void run() {
+    int n = readInt("Give me an integer motherfucker: ");
+    println(nDigits(n));
+  }
+  private int nDigits(int n) {
+    int digits = 1;
+    while (n > 1) {
+      n /= 10;
+      digits += 1;
+    }
+    return digits;
+  }
+}
+
+//-----------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  ex 5.05:  ASJ504raiseRealPower
+ *  -----------------------------
+ *  Write a method raiseRealPower that takes a floating point value x, & int k,
+ *  and returns x^k. Make sure it can correctly handle negative powers.
+ *  Start: 31-Dec-2015 12:44  | Finish: 31-Dec-2015 13:01
+ */
+
+import acm.program.*;
+
+public class ASJ505raiseRealPower extends ConsoleProgram {
+  public void run() {
+    double x = readDouble("REAL?!: ");
+    int k = readInt("POWAH!!: ");
+    double result = raiseRealPower(x, k);
+    println(result);
+  }
+  private double raiseRealPower(double x, int k) {
+    double xk = 1;
+    if (k < 0) {
+      while (k < 0) {
+        xk *= x;
+        k += 1;
+      }
+      xk = (1 / xk);
+    }
+    if (k > 0) {
+      while (k > 0) {
+        xk *= x;
+        k -= 1;
+      }
+    }
+    return xk;
+  }
+}
+
+//-----------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  ex 5.04:  ASJ504raiseIntPower
+ *  -----------------------------
+ *  Write a method raiseIntPower that takes 2 ints, n & k, and returns n^k
+ *  Start:  31-Dec-2015 12:34 | Finish: 31-Dec-2015 12:40
+ */
+
+import acm.program.*;
+
+public class ASJ504raiseIntPower extends ConsoleProgram {
+  public void run() {
+    int n = readInt("base: ");
+    int k = readInt("POWAH!: ");
+    int result = raiseIntPower(n, k);
+    println(result);
+  }
+  private int raiseIntPower(int n, int k) {
+    int nk = 1;
+    while (k > 0) {
+      nk *= n;
+      k -= 1;
+    }
+    return nk;
+  }
+}
+
+//-----------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  ex 5.03:  ASJ503Fibn
+ *  -----------------------------
+ *  Rewrite 4.09 so that it calls a method (fibonacci(n) to calc the nth Fib#.
+ *  Start:  31-Dec-2015 12:12 | Finish: 31-Dec-2015 12:25
+ */
+
+import acm.program.*;
+
+public class ASJ503Fibn extends ConsoleProgram {
+  public void run() {
+    int n = readInt("Enter a number for a stage in the Fibonacci sequence: ");
+    int result = Fib(n);
+    println(result);
+  }
+  private int Fib(int n) {
+    int f1 = 0;
+    int f2 = 0;
+    int fn = 1;
+    while (n > 0) {
+      f2 = f1;
+      f1 = fn;
+      fn = f1 + f2;
+      n -= 1;
+    }
+    return fn;
+  }
+}
+
+//-----------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  ex 5.02:  ASJ502-quad
+ *  -----------------------------
+ *  Write a program that accepts values for a, b, c, and calculates quadratic
+ *  formula (both roots). If no real solutions exist, program should say so.
+ *  Start:  31-Dec-2015 11:32 | Finish: 31-Dec-2015 12:08
+ */
+
+ import acm.program.*;
+ import static java.lang.Math.sqrt;
+ import static java.lang.Math.pow;
+
+ public class ASJ502quad extends ConsoleProgram{
+   public void run() {
+     double a = readDouble("a: ");
+     double b = readDouble("b: ");
+     double c = readDouble("c: ");
+     double x1 = (-b) + (Math.sqrt(Math.pow(b, 2) - 4*(a*c)) ) / (2*a);
+     double x2 = (-b) + (Math.sqrt(Math.pow(b, 2) - 4*(a*c)) ) / (2*a);
+
+     if ((Math.pow(b, 2) - 4*a*c) < 0) {
+       println("The roots are imaginary.");
+     } else {
+       println("The first root is " + x1);
+       println("The second root is " + x2);
+     }
+
+   }
+ }
+
+//-----------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  5.01
+ *  -----------------------------
+ *  Write a program that displays the value of fi
+ *  Start:  31-Dec-2015 11:18 | Finish: 31-Dec-2015 11:30
+ */
+
+ // fi = (1 + sqrt(5)) / 2
+
+import acm.program.*;
+import static java.lang.Math.sqrt;
+
+ public class ASJ501fi extends ConsoleProgram {
+   public void run() {
+     println("fi = " + (1 + Math.sqrt(5))/2);
+   }
+ }
+
+// -*- mode:java;-*-
