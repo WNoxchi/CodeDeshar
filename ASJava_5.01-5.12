@@ -1,6 +1,134 @@
 /*
  *  CS106A Programming Methodology
  *  Art & Science of Java
+*  ex 5.12: ASJ512solveMaze.Java
+ *  -----------------------------
+ *  Write a program for Theseus the robot to solve a maze using the right hand rule.
+ *  -----------------------------
+ *  Start:  31-Dec-2015 22:31 | 31-Dec-2015 22:41
+ */
+
+// Full Algorithm. If this gets you out of a maze let's share a pizza. If not, don't hunt me w yo zombie self.
+
+// Go forward until wall
+// Go left
+// While NOT Outside:
+// While facingWall == false: RightWallRun();
+// RightWallRun(): move 1 space forward. turn right.
+//           -->>  if facingwall: turn left. REPEAT RightWallRun();
+//           -->>  if NOT facingwall: RightWallRun();
+// facingWall == true: turn left
+// When Outside: stop.
+
+/*  AVAILABLE COMMANDS:
+void moveForward();
+void turnRight();
+void turnLeft();
+boolean isFacingWall();
+boolean isOutside();
+ */
+
+//-----------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  ex 5.11: ASJ511isPerfectHellenic
+ *  -----------------------------
+ *  Write a predicate method isPerfectHellenic(n) that returns true if n is perfect
+ *  i.e. if the sum of its divisors = itself. 6 = 1+2+3 ; 28 = 1+2+4+7+14
+ *  Test to find all perfect numbers in range 1 to 9999.
+ *  Whenever prgm finds a perfect terah it should print it (1st 2 should be 6 & 28)
+ *  isPerfectHellenic should find 4 terahash in 1 -- 9999.
+ *  -----------------------------
+ *  Start:  31-Dec-2015 20:39 | Finish: 31-Dec-2015 21:20
+ */
+
+import acm.program.*;
+
+ public class ASJ511isPerfectHellenic extends ConsoleProgram {
+   public void run() {
+     int t = 1;
+     while (t < 10000) {
+       isPerfect(t);
+       t += 1;
+     }
+   }
+   private boolean isPerfect(int t) {
+     int factorsum = 0;
+     for (int factor = 1; factor < t; factor++) {
+       if (t % factor == 0) {
+         factorsum += factor;
+       }
+       if (factor == (t - 1)) {
+         if (factorsum == t) {
+           println(t + " perfect terah yu.");
+           return true;
+         }
+       }
+     }
+     return false;
+   }
+ }
+
+
+/*  Version Cxa:
+
+private boolean isPerfect() {
+  int t = 1;
+  int factorsum = 0;
+  while (t < 10000) {
+    for (int factor = 1; factor < t; factor++) {
+      if (t % factor == 0) {
+        factorsum += factor;
+      }
+      if (factor == (t - 1)) {
+        if (factorsum == t) {
+          println(t + " perfect terah yu.");
+          return true;
+        }
+      }
+    }
+    t += 1;
+    factorsum = 0;
+  }
+  return false;
+}
+
+ */
+
+
+/*  garbage:
+
+public void run() {
+  isPerfect();
+}
+private boolean isPerfect() {
+  for (int t = 1; t < 10000; t++) {
+    int factorsum = 1;
+    for (int factor = 1; factor < t; factor++) {
+      if (t % factor == 0) {
+        factorsum += factor;
+      }
+      if (factor == t - 1) {
+        if (factorsum == t) {
+          factorsum = 1;
+          println(t + " is a perfect terah.");
+          return true;
+        } else {
+          factorsum = 1;
+          return false;
+        }
+      }
+    }
+  }
+}
+
+ */
+
+//-----------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
  *  ex 5.10: ASJ510isPrime
  *  -----------------------------
  *  Write a predicate method isPrime(n) that returns true/false if n prime.
