@@ -1,0 +1,283 @@
+/*
+ * File: Hailstone.java
+ * Name:
+ * Section Leader:
+ * --------------------
+ * This file is the starter file for the Hailstone problem.
+ * --------------------
+ * Start:	02-Jan-2016 15:26	|	Finish:	02-Jan-2016 15:39
+ */
+
+import acm.program.*;
+
+public class Hailstone extends ConsoleProgram {
+	public void run() {
+		println("This program will reduce any positive integer to 1 via the Hofstadter/Hailstone process.");
+		int terah = readInt("Enter any positive integer: ");
+		println("The process took " + Hail(terah) + " operations to reach 1.");
+	}
+	private int Hail(int terah) {
+		int count = 0;
+		while (terah != 1) {
+			if (terah % 2 == 1) {
+				println(terah + " is odd, so I make 3t + 1: " + 3*terah + 1);
+				terah = 3*terah + 1;
+				count += 1;
+			}
+			if (terah % 2 == 0) {
+				println(terah + " is even, so I take half: " + terah / 2);
+				terah /= 2;
+				count += 1;
+			}
+		}
+		return count;
+	}
+}
+
+
+
+/*
+ * File: FindRange.java
+ * Name: Wayne H. Noxchi
+ * Section Leader:
+ * --------------------
+ * This file is the starter file for the FindRange problem.
+ * --------------------
+ * Start:	02-Jan-2016 15:13	|	Finish:	02-Jan-2016 15:25
+ */
+
+import acm.program.*;
+
+public class FindRange extends ConsoleProgram {
+	private static final int SENTINEL = 0;
+	public void run() {
+		println("This program finds the largest and smallest numbers besides zero. Enter '" + SENTINEL + "' to signal stop.");
+		int largest = readInt("? ");
+		int smallest = largest;
+		while (true) {
+			int value = readInt("? ");
+			if (value > largest) largest = value;
+			if (value < smallest) smallest = value;
+			if (value == SENTINEL) break;
+		}
+		println("Smallest: " + smallest);
+		println("Largest: " + largest);
+	}
+}
+
+
+
+/*
+ * File: PythagoreanTheorem.java
+ * Name:
+ * Section Leader:
+ * -----------------------------
+ * This file is the starter file for the PythagoreanTheorem problem.
+ * -----------------------------
+ * Start:	02-Jan-2016 15:06	|	Finish:	02-Jan-2016 15:10
+ */
+
+import acm.program.*;
+
+public class PythagoreanTheorem extends ConsoleProgram {
+	public void run() {
+		println("Enter values to compute Pythagorean Theorem.");
+		int a = readInt("a: ");
+		int b = readInt("b: ");
+		println("c = " + computeC(a, b));
+	}
+	private double computeC(int a, int b) {
+		double c = Math.sqrt(a*a + b*b)
+		return c;
+	}
+}
+
+
+/*
+ * File: CS106ATiles.java
+ * Name:
+ * Section Leader:
+ * ----------------------
+ * This file is the starter file for the CS106ATiles problem.
+ * ----------------------
+ * Start:	02-Jan-2016 13:30	|	02-Jan-2016 14:43
+ */
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+
+public class CS106ATiles extends GraphicsProgram {
+
+	/** Amount of space (in pixels) between tiles */
+	private static final int TILE_SPACE = 20;
+
+	private static final int TILE_VertSPACE = 75;
+
+	private static final int TILE_HEIGHT = 35;
+	private static final int TILE_WIDTH = 130;
+	private static final int xCENTER = 376;
+	private static final int yof_HALXARTILE = 100;
+
+	public void run() {
+		drawTiles();
+		drawLines();
+		printLabels();
+	}
+	private void drawTiles() {
+		add(new GRect(xCENTER - TILE_WIDTH / 2, yof_HALXARTILE, TILE_WIDTH, TILE_HEIGHT));
+		for(int iter = 0; iter < 3; iter++) {
+			add(new GRect(((xCENTER - TILE_WIDTH / 2) - (TILE_WIDTH + TILE_SPACE) + iter*(TILE_WIDTH + TILE_SPACE)), yof_HALXARTILE + TILE_VertSPACE, TILE_WIDTH, TILE_HEIGHT));
+		}
+	}
+	private void drawLines() {
+		for(int iter = 0; iter < 3; iter++) {
+			add(new GLine(xCENTER, yof_HALXARTILE + TILE_HEIGHT, ((xCENTER - TILE_WIDTH / 2) - (TILE_WIDTH + TILE_SPACE) + iter*(TILE_WIDTH + TILE_SPACE)) + TILE_WIDTH / 2 , yof_HALXARTILE + TILE_VertSPACE));
+		}
+	}
+	private void printLabels() {
+		GLabel halxarLabel = new GLabel ("Program");
+		halxarLabel.setLocation(xCENTER - halxarLabel.getWidth()/2, yof_HALXARTILE + TILE_HEIGHT - halxarLabel.getAscent());
+		add(halxarLabel);
+
+		GLabel sholghLabel = new GLabel ("GraphicsProgram");
+		sholghLabel.setLocation(((xCENTER - sholghLabel.getWidth()/2) - (TILE_WIDTH + TILE_SPACE) + 0*(TILE_WIDTH + TILE_SPACE)), yof_HALXARTILE + TILE_HEIGHT - sholghLabel.getAscent() + TILE_VertSPACE);
+		add(sholghLabel);
+
+		GLabel kxoalghLabel = new GLabel ("ConsolesProgram");
+		kxoalghLabel.setLocation(((xCENTER - kxoalghLabel.getWidth()/2) - (TILE_WIDTH + TILE_SPACE) + 1*(TILE_WIDTH + TILE_SPACE)), yof_HALXARTILE + TILE_HEIGHT - kxoalghLabel.getAscent() + TILE_VertSPACE);
+		add(kxoalghLabel);
+
+		GLabel dialghLabel = new GLabel ("DialogProgram");
+		dialghLabel.setLocation(((xCENTER - dialghLabel.getWidth()/2) - (TILE_WIDTH + TILE_SPACE) + 2*(TILE_WIDTH + TILE_SPACE)), yof_HALXARTILE + TILE_HEIGHT - dialghLabel.getAscent() + TILE_VertSPACE);
+		add(dialghLabel);
+	}
+}
+
+
+
+// 	Console Xdim = 753,	Ydim = 471
+// 	Center Point:	x = 476,	y = 285
+// 	We could clean up the X-offset parameter by specifying it as an int var once.
+// 	I want a way to iterate through a series of values for x-alghLabel and prefix string to "Program" I'm not there yet..
+
+/*
+ * File: CS106ATiles.java
+ * Name:
+ * Section Leader:
+ * ----------------------
+ * This file is the starter file for the CS106ATiles problem.
+ * ----------------------
+ *
+ */
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+
+public class CS106ATiles extends GraphicsProgram {
+
+	/** Amount of space (in pixels) between tiles */
+	private static final int TILE_SPACE = 20;
+
+	public void run() {
+		/* You fill this in. */
+	}
+}
+
+
+
+/*
+ * File: Target.java
+ * Name: Wayne H. Noxchi
+ * Section Leader:
+ * -----------------
+ * This file is the starter file for the Target problem.
+ * -----------------
+* Start:	02-Jan-2016 13:08	|	Finish:	02-Jan-2016 13:28
+ */
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+
+public class Target extends GraphicsProgram {
+	private static final int xCENTER = 361;
+	private static final int yCENTER = 174;
+
+	public void run() {
+		GOval oval1 = new GOval(xCENTER - 35, yCENTER, 100, 100);
+		oval1.setFilled(true);
+		oval1.setColor(Color.RED);
+		add(oval1);
+
+		GOval oval2 = new GOval(xCENTER - 15, yCENTER + 20, 60, 60);
+		oval2.setFilled(true);
+		oval2.setColor(Color.WHITE);
+		add(oval2);
+
+		GOval oval3 = new GOval(xCENTER - 0, yCENTER + 35, 30, 30);
+		oval3.setFilled(true);
+		oval3.setColor(Color.RED);
+		add(oval3);
+	}
+}
+
+//  Better way to do this would be to define each circle as a prviate method/object,
+// 	and have their x and y offsets determined by variables.
+
+
+/*
+ * File: Pyramid.java
+ * Name: Wayne H. Noxchi
+ * Section Leader:
+ * ------------------
+ * This file is the starter file for the Pyramid problem.
+ * It includes definitions of the constants that match the
+ * sample run in the assignment, but you should make sure
+ * that changing these values causes the generated display
+ * to change accordingly.
+ * ------------------
+ * Start:	 01-Jan-2016 11:46	|	Finish:	01-Jan-2016 14:13
+ */
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+
+public class Pyramid extends GraphicsProgram {
+
+/** Width of each brick in pixels */
+	private static final int BRICK_WIDTH = 30;
+
+/** Height of each brick in pixels */
+	private static final int BRICK_HEIGHT = 12;
+
+/** Number of bricks in the base of the pyramid */
+	private static final int BRICKS_IN_BASE = 14;
+
+  private static final int CENTER = 361;
+  private static final int xFIELD = 723;
+  private static final int yFIELD = 459;
+
+	public void run() {
+		buildPyramid(BRICKS_IN_BASE);
+	}
+  private void buildPyramid(int BRICKS_IN_BASE) {
+    for (int rank = BRICKS_IN_BASE; rank > 0; rank--) {
+      for (int base = rank; base > 0; base--) {
+        add(new GRect((CENTER - (base*BRICK_WIDTH) + ((rank-1)*(BRICK_WIDTH/2))) , yFIELD - (BRICKS_IN_BASE - rank)*BRICK_HEIGHT, BRICK_WIDTH, BRICK_HEIGHT));
+      }
+    }
+  }
+}
+
+/*  Self-Talk:
+ *  First thing I want to do is find out where the center of the console is.
+ *  Console dim (for brick dimensions): x:723 y: 459; center: x: 361
+ *  Now I need to find the formula for lateral Brick placement.
+ *
+ *
+ */
+
+// -*- mode:java;-*-
