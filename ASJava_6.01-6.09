@@ -1,7 +1,7 @@
 /*
  *  CS106A Programming Methodology
  *  Art & Science of Java
- *  ex 6.01 cards   CoinFlipASJ602.Java
+ *  ex 6.02 coins   CoinFlipASJ602.Java
  *  -----------------------------
  *  Write a program that simulates flipping coins until it gets 3 in a row.
  *  Display total flips.
