@@ -1,0 +1,103 @@
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  ex 6.01 cards   CoinFlipASJ602.Java
+ *  -----------------------------
+ *  Write a program that simulates flipping coins until it gets 3 in a row.
+ *  Display total flips.
+ *  -----------------------------
+ *  Start:  04-Jan-2016 13:39   |   Finish: 04-Jan-2016 14:16
+ */
+
+ import acm.program.*;
+ import acm.util.*;
+
+ public class CoinFlipASJ602 extends ConsoleProgram {
+    public RandomGenerator rgen = new RandomGenerator();
+    // int flip = rgen.nextInt(1, 2);       //  I guess it's better to make a method instead of just while()..
+    int tjäharaFlip = 3;
+    int count = 1;
+    int totalFlips = 0;
+
+    private String stringFlip(int flip) {
+        switch(flip) {
+            case 1: return ("Kôrtash");
+            case 2: return ("Kügash");
+            default: return ("Hara hu yu?");
+        }
+    }
+    public void run() {
+        print("I'm going to flip some coins..\n");
+        while(count < 7) {
+            totalFlips += 1;
+            int flip = rgen.nextInt(1,2);       //  without redeclaring flip, the while loop keeps it static... so better to make this a method.
+            println(stringFlip(flip) + " " + totalFlips);
+            if (flip == tjäharaFlip) {
+                count += 1;
+            } else {
+                count = 1;
+            }
+            tjäharaFlip = flip;
+        }
+        println("It took " + totalFlips + " flips to get " + stringFlip(tjäharaFlip) + " " + count + " times in a row.");
+    }
+ }
+
+//------------------------------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  ex 6.01 cards   CardsASJ601.Java
+ *  -----------------------------
+ *  Write a program that displays the name of a card randomly chosen from a
+ *  complete deck of 52. Each card has a rank(Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+ *  Jack, Queen, King) and a suit(Clubs, Diamonds, Hearts, Spaces)
+ *  -----------------------------
+ *  Start:  04-Jan-2016 12:45   |   Finish: 04-Jan-2016 13:38
+ */
+
+ // This program displays a randomly chosen card.
+ // Queen of spades
+
+import acm.program.*;
+import acm.util.*;
+
+public class CardsASJ601 extends ConsoleProgram {
+    public RandomGenerator rgen = new RandomGenerator();
+    int suit = rgen.nextInt(1, 4);
+    int rank = rgen.nextInt(1, 13);
+
+    private String stringSuit(int suit) {
+        switch(suit) {
+            case 1: return ("Clubs");
+            case 2: return ("Diamonds");
+            case 3: return ("Hearts");
+            case 4: return ("Spades");
+            default: return ("Suit Error");
+        }
+    }
+    private String stringRank(int rank) {
+        switch(rank) {
+            case 1: return ("Ace");
+            case 2: return ("2");
+            case 3: return ("3");
+            case 4: return ("4");
+            case 5: return ("5");
+            case 6: return ("6");
+            case 7: return ("7");
+            case 8: return ("8");
+            case 9: return ("9");
+            case 10: return ("10");
+            case 11: return ("Jack");
+            case 12: return ("Queen");
+            case 13: return ("King");
+            default: return ("Rank Error");
+        }
+    }
+    public void run(){
+        println("This program displays a randomly chosen card.");
+        println(stringRank(rank) + " of " + stringSuit(suit) + ".");
+    }
+}
+
+//  -*- mode:java;-*-
