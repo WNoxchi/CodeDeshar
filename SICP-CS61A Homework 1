@@ -2,9 +2,10 @@
 ;   SICP/CS61A  Homework 1  04-Jan-2016 10:00-12:00 | 05-Jan-2016 10:20 | 06-Jan-2016 15:08
 ;-------------------------------------------------------------------------------
 ;   HW Soln: http://reocities.com/Area51/Atlantis/6894/cs61a/week1.txt
+;   HW Handout: http://wla.berkeley.edu/~cs61a/reader/nodate-hw.pdf
 
-2.  Write a proc (squares) that takes a sentence of numbers as its arg & returns
-    a sentence of the squares of the numbers.
+;2.  Write a proc (squares) that takes a sentence of numbers as its arg & returns
+;    a sentence of the squares of the numbers.
 
 (define (squares nums)
     (if (empty? nums)
@@ -17,13 +18,13 @@
 ;                                  (run squares on butfirst elements in Numbers)
 
 ;-------------------------------------------------------------------------------
-3.  Write a proc (switch) that takes a sent as arg and returns a sent w every
-    word 'I' or 'me' replaced w 'you' & every 'you' replaced w 'me' except 1st
-    which is 'I'
+;3.  Write a proc (switch) that takes a sent as arg and returns a sent w every
+;    word 'I' or 'me' replaced w 'you' & every 'you' replaced w 'me' except 1st
+;    which is 'I'
 
 ;   (HWsoln): The tricky part is that the first word of the sentence must be
-treated specially, so there has to be a top-level procedure that handles
-it and also invokes a recursive subprocedure for the rest of the words:
+;treated specially, so there has to be a top-level procedure that handles
+;it and also invokes a recursive subprocedure for the rest of the words:
 
 (define (switch sent)
     (se (switchFirst (first sent))
@@ -48,8 +49,8 @@ it and also invokes a recursive subprocedure for the rest of the words:
           (else wd) ))
 
 ;-------------------------------------------------------------------------------
-4.  Write a predicate <ordered?> that takes a sentence of numbers as arg and
-    returns #t if #'s in ascending order, #f otherwise.
+;4.  Write a predicate <ordered?> that takes a sentence of numbers as arg and
+;    returns #t if #'s in ascending order, #f otherwise.
 
 (define (ordered? sent)
     (cond ((empty? (bf sent)) #t)
@@ -57,8 +58,8 @@ it and also invokes a recursive subprocedure for the rest of the words:
           (else (ordered? (bf sent))) ))
 
 ;-------------------------------------------------------------------------------
-5.  Write a proc (endsE) that takes a sentence as its arg and returns a sentence
-    containing only words of arg ending in E/e.
+;5.  Write a proc (endsE) that takes a sentence as its arg and returns a sentence
+;    containing only words of arg ending in E/e.
 
 (define (ends-e sent)
     (cond ((empty? sent) '())
@@ -67,7 +68,7 @@ it and also invokes a recursive subprocedure for the rest of the words:
           (else (ends-e (bf sent)))))
 
 ;-------------------------------------------------------------------------------
-6.  Devise a way to test of <or> is a special form in a Scheme interpreter.
+;6.  Devise a way to test of <or> is a special form in a Scheme interpreter.
 
 (or 1 2 x)
 
@@ -82,7 +83,7 @@ it and also invokes a recursive subprocedure for the rest of the words:
 
 ;-------------------------------------------------------------------------------
 
-1.  [1.06]  What's going on is this: defining <new-if> doesn't matter for evaluating (new-if (= 2 3) 0 5) because the answer is the same for ordinary and special forms. All parts are evaluated before applying the proc.
+;1.  [1.06]  What's going on is this: defining <new-if> doesn't matter for evaluating (new-if (= 2 3) 0 5) because the answer is the same for ordinary and special forms. All parts are evaluated before applying the proc.
 
 (sqrt-iter (improve guess x) x)
 
