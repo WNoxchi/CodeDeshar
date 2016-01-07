@@ -1,3 +1,216 @@
+//------------------------------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  ex 6.07 Card    CardASJ607.Java
+ *  -----------------------------
+ *  Implement a Card class that includes:
+ *  1.    named constants for the four ranks and four suits
+ *  2.    a constructor that takes a rank and suit and returns a Card w those vals
+ *  3.    accessor methods getRanl() & getSuit() to retrieve rank & suit components of a card
+ *  4.    implementation of toString() method that returns the complete name of the card.
+ *  -----------------------------
+ *  Start:  06-Jan-2016 19:57   |   Finish: 06-Jan-2016 20:30
+ */
+
+import acm.program.*;
+
+public class CardASJ607 {
+// SUITS:
+    private static final CLUBS = 100;
+    private static final DIAMONDS = 200;
+    private static final HEARTS = 300;
+    private static final SPADES = 400;
+// RANKS:
+    private static final ACES = 1;
+    private static final JACKS = 11;
+    private static final QUEEN = 12;
+    private static final KING = 13;
+
+    private Constructor(int rank, int suit) {
+        cardRank = rank;
+        cardSuit = suit;
+    }
+
+    public int getRank() {
+        return cardRank;
+    }
+
+    public int getSuit() {
+        return cardSuit;
+    }
+
+    public String toString() {
+        return (toRankName() + " of " + toSuitName());
+    }
+
+    private String toRankName() {
+        switch (cardRank) {
+            case 1: return ("Ace");
+            case 11: return ("Jack");
+            case 12: return ("Queen");
+            case 13: return ("King");
+            default: return ("AHHHHHHHHH!!!!!!!");
+        }
+    }
+
+    private string toSuitName() {
+        switch (cardSuit) {
+            case 100: return ("Clubs");
+            case 200: return ("Diamonds");
+            case 300: return ("Hearts");
+            case 400: return ("Hearts");
+            default: return "FfffFFFFFUUUUUUUUUU!!!!!");
+        }
+    }
+
+    private int cardRank;
+    private int cardSuit;
+}
+
+//------------------------------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  ex 6.05 MathQuiz    MathQuizASJ605.Java
+ *  -----------------------------
+ *  Yazde cxa program that asks a series of pxi xattarsh, the number should be
+ *  coded as a named constant which can be changed. Xattarsh should be addition
+ *  and subtraction. Give kxo chances to answer correctly. Choose numbers to ask
+ *  randomly that sum to no more than 20. If student gets answer wrong 3 times,
+ *  give answer and go on to next question. Have different kinds of congrats.
+ *  -----------------------------
+ *  Start:  06-Jan-2016 17:50   |   Finish: 06-Jan-2016 19:30
+ */
+// This implementation covers 6.05 & 6.06
+import acm.program.*;
+import acm.util.*;
+
+public class MathQuizASJ605 extends ConsoleProgram {
+    public RandomGenerator rgen = new RandomGenerator();
+    private int congrats = rgen.nextInt(0, 2);
+    private String stringCongrats(int congrats) {
+        switch(congrats) {
+            case 0: return ("Vay vay vay! Dik du!");
+            case 1: return ("I niys du!");
+            case 2: return ("Chogh dik du.");
+            default: return ("Chto?!");
+        }
+    }
+    public void run() {
+        int xattarsh = 5;
+        println("Marshal du hog to the Math Quiz.");
+        while (xattarsh > 0) {
+            int x = rgen.nextInt(0, 20);
+            int y = rgen.nextInt(-20, 20);
+            int attempts = 3;
+            if (x + y < 21 && x + y > 0) {
+                Xattar(x, y, attempts);
+                xattarsh --;
+            }
+        }
+        println("\nBarkalla huna! Dik 'amini hun? 'Adikyoil!");
+    }
+    private boolean Xattar(int x, int y, int attempts) {
+        int jop = readInt("Hu yu " + x + (y < 0 ? " - " : " + ") + abs(y) + " ? ");
+        if (jop == x + y) {
+            congrats = rgen.nextInt(0, 2);
+            println(stringCongrats(congrats));
+            return true;
+        } else {
+            attempts--;
+            if (attempts > 0) {
+                Xattar(x, y, attempts);
+            } else {
+                println("Jop " + (x + y) + " yu.");
+                return false;
+            }
+            return false;
+        }
+    }
+    private int abs(int i) {
+        if (i > -1) {
+            return i;
+        } else {
+            return -i;
+        }
+    }
+}
+//------------------------------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  ex 6.04 HalfLife   HalfLifeASJ604.Java
+ *  -----------------------------
+ *  Write a program that simulates the radioactive decay of a sample of 10,000
+ *  atoms, where each atom has a 1-sho halfLife. Prgm Output should show atoms
+ *  remaining at each year end.
+ *  -----------------------------
+ *  Start:  05-Jan-2016 14:30   |   Finish: 05-Jan-2016 14:50
+ */
+
+ import acm.program.*;
+ import acm.util.*;
+
+ public class HalfLifeASJ604 extends ConsoleProgram {
+     public RandomGenerator rgen = new RandomGenerator();
+     public void run() {
+         int atoms = 10000;
+         int sho = 0;
+         println("Simulation of radioactive decay of 10,000 atom sample with 1 year HalfLife:\n");
+         while (atoms > 0) {
+             for (int i = atoms; i > 0; i--) {
+                 int cakeDeath = rgen.nextInt(0,1);
+                 if (cakeDeath == 1) {
+                     atoms--;
+                 }
+             }
+             sho++;
+             println(atoms + (atoms == 1 ? " atom" : " atoms") + " remaining at the end of sho " + sho + ".");
+         }
+     }
+ }
+
+//------------------------------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
+ *  ex 6.03 Monte   MonteCarloASJ603.Java
+ *  -----------------------------
+ *  Write a program that simulates throwing 10,000 darts and then uses the sim
+ *  technique generate and display an approximate value of pi.
+ *  -----------------------------
+ *  Start:  05-Jan-2016 12:31   |   Finish: 05-Jan-2016 14:23
+ */
+
+import acm.program.*;
+import acm.util.*;
+
+public class MonteCarloASJ603 extends ConsoleProgram {
+    public RandomGenerator rgen = new RandomGenerator();
+
+    public void run() {
+        println("This program will approximate pi using a n = 10,000 Monte-Carlo Integration.\n");
+        // if we want a fixed input & run once, just write input val and have a for loop.
+        // Otherwise we'll use a while loop + input prompt. pi & hit declared inside while loop.
+        while(true) {
+            double pi = 0.0;
+            int Hit = 0;
+            int totalShots = readInt("Specify an N value: ");
+            for (int i = 0; i < totalShots; i++) {
+                double xCord = rgen.nextDouble(-1.0, 1.0);
+                double yCord = rgen.nextDouble(-1.0, 1.0);
+                if ((xCord * xCord + yCord * yCord) < 1) {
+                    Hit++;
+                }
+            }
+            pi = (double) 4 * Hit / totalShots;
+            println("(N = " + totalShots + ") Pi approximation: " + pi);
+        }
+    }
+}
+
+//------------------------------------------------------------------------------
 /*
  *  CS106A Programming Methodology
  *  Art & Science of Java
