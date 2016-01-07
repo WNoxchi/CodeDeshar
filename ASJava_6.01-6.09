@@ -15,7 +15,7 @@
 
 import acm.program.*;
 
-public class CardASJ607 {
+public class Card {
 // SUITS:
     private static final CLUBS = 100;
     private static final DIAMONDS = 200;
