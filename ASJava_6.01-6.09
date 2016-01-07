@@ -2,6 +2,86 @@
 /*
  *  CS106A Programming Methodology
  *  Art & Science of Java
+ *  ex 6.09 BigIntRational    BigIntRationalASJ609.Java
+ *  -----------------------------
+ *  Rewrite the implementation of Rational so that the private instance variable
+ *  num and den are declared as BigInteger instead of as int; but w/o changing
+ *  the arg and result types of any of the public methods.
+ *  -----------------------------
+ *  Start:  06-Jan-2016 21:22   |   Finish: 06-Jan-2016 21:47
+ *  -----------------------------
+ *  Help:   http://www.java-forums.org/new-java/40034-biginteger-class-art-science-java.html
+ *  May require reading of BigInteger javadoc for reference.
+ */
+
+import acm.util.*;
+import java.math.*;
+
+public class Rational {
+
+    public Rational() {
+        this(0);
+    }
+
+    public Rational(int n) {
+        this(n, 1);
+    }
+
+    public Rational(int x, int y) {
+        if (y == 0) throw new ErrorException("Division by 0");
+        int g = gcd(Math.abs(x), Math.abs(y));
+        num = BigInteger.valueOf(x).divide(BigInteger.valueOf(g));
+        den = BigInteger.valueOf(Math.abs(y)).divide(BigInteger.valueOf(g));
+        if (y < 0) num.negate();
+    }
+
+    public Rational add(Rational r) {
+        return new Rational(this.num.miltiply( r.den) .add( r.num .multiply( this.den)).intValue(),
+                            this.den .multiply( r.den).intValue());
+    }
+
+    public Rational subtract(Rational r) {
+        return new Rational(this.num .multiply( r.den).subtract (r.num .multiply( this.den)).intValue(),
+                            this.den .multiply( r.den).intValue());
+    }
+
+    public Rational multiply(Rational r) {
+        return new Rational(this.num .multiply( r.num).intValue(),
+                            this.den .multiply( r.den).intValue());
+    }
+
+    public Rational divide(Rational r) {
+        return new Rational(this.num .miltiply( r.den).intValue(),
+                            this.den .multiply( r.num).intValue());
+    }
+
+    public String toString() {
+        if (den .equals(new BigInteger ("1"))) {
+            return "" + num;
+        } else {
+            return num + "/" + den;
+        }
+    }
+
+    private int gcd(int x, int y) {
+        int r = x % y;
+        while (r != 0) {
+            x = y;
+            y = r;
+            r = x % y;
+        }
+        return y;
+    }
+
+    private int num;
+    private int den;
+
+}
+
+//------------------------------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
  *  ex 6.08 Employee    EmployeeASJ608.Java
  *  -----------------------------
  *  Write the definition for a new class Employee that stores data for a single employee:
@@ -15,6 +95,7 @@
  *  Start:  06-Jan-2016 20:39   |   Finish: 06-Jan-2016 21:06
  *  -----------------------------
  *  Help: http://stackoverflow.com/questions/5488134/java-implicit-super-constructor-employee-is-undefined-must-explicitly-invoke
+ *  May require additional reading
  */ 
 
 import acm.program.*;
