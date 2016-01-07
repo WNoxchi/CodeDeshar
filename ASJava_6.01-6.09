@@ -2,6 +2,67 @@
 /*
  *  CS106A Programming Methodology
  *  Art & Science of Java
+ *  ex 6.08 Employee    EmployeeASJ608.Java
+ *  -----------------------------
+ *  Write the definition for a new class Employee that stores data for a single employee:
+ *  1.  Name (String)
+ *  2.  Supervisor (String)
+ *  3.  Annual Salary (double)
+ *  Instance vars containing these vals must be private. Make sure there's a
+ *      constructor method allowing clients to initialize all these fields when 
+ *      a new Employee object is created.
+ *  -----------------------------
+ *  Start:  06-Jan-2016 20:39   |   Finish: 06-Jan-2016 21:06
+ *  -----------------------------
+ *  Help: http://stackoverflow.com/questions/5488134/java-implicit-super-constructor-employee-is-undefined-must-explicitly-invoke
+ */ 
+
+import acm.program.*;
+
+public class Employee {
+
+    private String Name;
+    private String Supervisor;
+    private double Salary;
+
+    public Employee() {}    //  No-arg Constructor (somthing something stackexchange)
+
+    public Employee(String Name, String Supervisor, double Salary) {
+        setName(Name);
+        setSupervisor(Supervisor);
+        setSalary(Salary);
+    }
+
+    public void setName(String s) {
+        Name = s;
+    }
+
+    public void setSupervisor(String s) {
+        Name = s;
+    }
+
+    public void setSalary(double d) {
+        Salary = d;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public String getSupervisor() {
+        return Supervisor;
+    }
+
+    public double getSalary() {
+        return Salary;
+    }
+
+}
+
+//------------------------------------------------------------------------------
+/*
+ *  CS106A Programming Methodology
+ *  Art & Science of Java
  *  ex 6.07 Card    CardASJ607.Java
  *  -----------------------------
  *  Implement a Card class that includes:
