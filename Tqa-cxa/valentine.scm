@@ -30,7 +30,7 @@
                               (< (best-total hand) 17)) ))
 
 ;----------------------------------------
-; Checking against:
+; Checking against: https://github.com/fgalassi/cs61a-sp11/blob/master/projects/blackjack/normal/valentine-strategy.scm
 
 (load "best-total")
 
