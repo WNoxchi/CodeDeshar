@@ -18,7 +18,7 @@
 ;----------------------------------------
 ; Checked against:  https://github.com/fgalassi/cs61a-sp11/blob/master/projects/blackjack/normal/stop-at.scm
 
-(load "best-total")
+;(load "best-total")
 
 ;(define (stop-at n)
 ;  (lambda (hand dealer-card)
