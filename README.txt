@@ -11,10 +11,11 @@ SICP/CS61A - Structure & Interpretation of Computer Programs
   UCB CS61A 2011 Lectures:  https://www.youtube.com/playlist?list=PL67444CD99790F839
   (you'll need the SICP book for readings)
       Course Page:  https://inst.eecs.berkeley.edu/~cs61a/sp11/
-      Assignments:  https://github.com/fgalassi/cs61a-sp11  | http://reocities.com/Area51/Atlantis/6894/CS61A.htm (warning, weird a-f website)
+      Assignments:  https://github.com/fgalassi/cs61a-sp11
 
 CS106A - Programming Methodology
+  (I'm using iTunes U which has everything organized for this course)
   Stanford 2007 Lectures: https://www.youtube.com/view_play_list?p=84A56BC7F4A1F852
   Course Page:    http://web.stanford.edu/class/cs106a/
   Class Guide:    https://github.com/NatashaTheRobot/Stanford-CS-106A/wiki/Stanford-Introduction-To-Computer-Science-Programming-Methodology-CS106A-Class-Guide
-  (I'm using iTunes U which has everything organized for this course)
+
