@@ -21,7 +21,7 @@ public class HangmanLexicon {
 				if (Line == null) break;
 				wordList.add(Line);
 			}
-			hangmanWords.close();
+			hangmanDeshnash.close();
 		} catch (IOException wtf) {
 			throw new ErrorException(wtf);
 		}
