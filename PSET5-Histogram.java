@@ -1,7 +1,7 @@
 /*
  * CS106A Programming Methodology
  * Problem Set 5.2 - Histogram
- * PSET5 WordCount.java
+ * PSET5 Histogram.java
  * --------------------
  * Program reads scores from a txt file, 1 score/line, & displays historgram.
  * --------------------
