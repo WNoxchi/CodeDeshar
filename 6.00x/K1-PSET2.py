@@ -2,6 +2,65 @@
 # Wayne H. Noxchi | 27-Jan-2016 20:52
 # --------------------------------------
 
+# --------------------------------------
+# 2.2: Min Fixed Payment
+# Start: 28-Jan-2016 18:58 | Stop: 1930 - 2200 | Finish: 28-Jan-2016 22:15
+# --------------------------------------
+# Prints 1 line: lowest payment
+
+# balance = 3329
+# annualInterestRate = 0.2
+
+MIR = annualInterestRate / 12.0
+MFMP = 10.0
+
+def checkPayment(MFMP):
+    upBal = balance
+    for i in range(12):
+        # print("ITER: %i" % i)
+        MUB = upBal - MFMP
+        upBal = MUB + MIR * MUB
+        # print upBal
+    return upBal
+while checkPayment(MFMP) > 0:
+    MFMP += 10
+    checkPayment(MFMP)
+print ("Lowest Payment: %i" % MFMP)
+
+# ---------------------------------
+# OLD/GARBAGE:
+
+# def detPayment(MFMP, MIR, balance):
+#     for i in range(12):
+#         newBalance = balance
+#         MUB = newBalance - MFMP
+#         newBalance = MUB + MIR * MUB
+#         return newBalance
+# 
+# while newBalance > 0.0:
+#     detPayment(MFMP, MIR, balance)
+#     MFMP += 10.0
+# 
+# print("Lowest Payment: %i" % MFMP)
+# 
+# 
+# MIR = annualInterestRate / 12.0
+# upBal = balance
+# guess = 10
+# 
+# def checkPayment(guess, upBal):
+#     for i in range(12):
+#         MUB = upBal - guess
+#         upBal = MUB + MIR * MUB
+#     return upBal
+# 
+# while upBal > 0:
+#     checkPayment(MFMP, balance)
+#     MFMP += 10
+# 
+# print("Lowest Payment: %i" % MFMP)
+
+# --------------------------------------
 # 2.1: Paying the Minimum
 # Start: 27-Jan-2016 20:53 | Finish: 27-Jan-2016 21:35
 # --------------------------------------
