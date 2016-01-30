@@ -3,6 +3,46 @@
 # --------------------------------------
 
 # --------------------------------------
+# 3.2: Hangman Part 1: Is the Word Guessed
+# Start: 29-Jan-2016 15:29 | Stop: 16:13 - 19:57 | Fin: 29-Jan-2016 20:21
+# --------------------------------------
+
+def isWordGuessed(secretWord, lettersGuessed):
+    '''
+    secretWord: string, the word the user is guessing
+    lettersGuessed: list, what letters have been guessed so far
+    returns: boolean, True if all the letters of secretWord are in lettersGuessed;
+      False otherwise
+    '''
+    # FILL IN YOUR CODE HERE...
+
+# Method Cxa':
+    if lettersGuessed == []:
+        return False
+    check = False
+    for i in range(len(secretWord)):
+        if secretWord[i] in lettersGuessed:
+            check = True
+        else:
+            return False
+    return check
+
+# Method Shi':
+
+    if lettersGuessed == []:
+        return False
+
+    for word in secretWord:
+        resultList = []
+        for letter in lettersGuessed:
+            result = ( word == letter )     # result equals boolean outcome
+            resultList.append(result)
+        if True in resultList:
+            continue
+        else return False
+    return True
+
+# --------------------------------------
 # 3.1: Radiation Exposure
 # Start: 29-Jan-2016 14:28 | Finish: 29-Jan-2016 14:37
 # --------------------------------------
