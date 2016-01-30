@@ -2,6 +2,48 @@
 # Wayne H. Noxchi | 29-Jan-2016 14:27
 # --------------------------------------
 
+# ----------------------------------------------------------
+# 3.3: Hangman Part 1: Printing Out the User's Guess
+# Start: 29-Jan-2016 20:24  |   Finish: 29-Jan-2016 20:38
+# ----------------------------------------------------------
+
+def getGuessedWord(secretWord, lettersGuessed):
+    '''
+    secretWord: string, the word the user is guessing
+    lettersGuessed: list, what letters have been guessed so far
+    returns: string, comprised of letters and underscores that represents
+      what letters in secretWord have been guessed so far.
+    '''
+    # FILL IN YOUR CODE HERE...
+
+    # secretWord = "hello"
+    # lettersGuessed = "el"
+    ouText = ""
+    tempText = ""
+    for i in secretWord:
+        ouText += "_ "
+    for i in secretWord:
+        if i in lettersGuessed:
+            tempText += i + " "
+        else: tempText += "_ "
+        ouText = tempText
+    print ouText
+
+# test output:
+#>>> _ e l l _
+
+# OLD/GARBAGE:
+    # ouText = []
+    # tempText = []
+    # for word in secretWord:
+    #     outText += "_ "
+    #     for letter in lettersGuessed:
+    #         if word in lettersGuessed:
+    #             tempText += word
+    #         else: tempText += "_ "
+    #     outText = tempText
+    # return ouText
+
 # --------------------------------------
 # 3.2: Hangman Part 1: Is the Word Guessed
 # Start: 29-Jan-2016 15:29 | Stop: 16:13 - 19:57 | Fin: 29-Jan-2016 20:21
