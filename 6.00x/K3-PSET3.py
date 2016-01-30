@@ -28,7 +28,6 @@ def isWordGuessed(secretWord, lettersGuessed):
     return check
 
 # Method Shi':
-
     if lettersGuessed == []:
         return False
 
