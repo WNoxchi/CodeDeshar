@@ -27,7 +27,8 @@ def getGuessedWord(secretWord, lettersGuessed):
             tempText += i + " "
         else: tempText += "_ "
         ouText = tempText
-    print ouText
+    # print ouText
+    return ouText
 
 # test output:
 #>>> _ e l l _
