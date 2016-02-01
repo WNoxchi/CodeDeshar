@@ -1,4 +1,66 @@
 /*
+ * File: CountNames.java
+ * ---------------------
+ * CS106A PSet 6.2
+ * ---------------------
+ * Wayne H. Noxchi
+ * Start: 01-Feb-2016 07:12 | Finish: 01-Feb-2016 08:27
+ */
+
+// so it's HashMap.put(key, value)
+// so entering a name adds key if not exist, & adds 1 to value, start at 1
+// so how to do that..
+// need to find out what is << .hasNext() >>
+// hu yu << .get(name) >>
+// hu yu << .keySet() >> a << .iterator() >> a
+
+import acm.program.*;
+import java.util.*;
+
+public class CountNames extends ConsoleProgram {
+
+    public void run() {
+        // initialize a hashmap to contain names:
+        HashMap<String,Integer> nameMap = new HashMap<String,Integer>();
+
+        readMap(nameMap);
+        printMap(nameMap);
+    }
+
+    private void readMap(<String,Integer> map) {
+        while (true) {
+            String name = readLine("Enter name: ");
+            if (name.equals("")) break;
+
+            // See if name already appeared in map. Update count if it did,
+            // create new count if it didn't.
+
+            Integer count = map.get(name);
+            if (count == null) {
+                count = new Integer(1);
+            } else {
+                count = new Integer(count + 1);
+            }
+            map.put(name, count);
+        }
+    }
+
+    private void printMap(<String,Integer> map) {
+        // start by creating an Iterator object of type <String> to go over the map
+        Iterator<String> iter = map.keySet().iterator();   // keySet() returns a K-V pair (set)
+        while (iter.hasNext()) {
+            String key = iter.next();
+            int count = map.get(key);
+            println("Entry [" + key + "] has count " + count);
+        }
+    }
+}
+
+
+// -----------------------------------------------------------------------------
+
+
+/*
  * CS106A Programming Methodology
  * Problem Set 6.1
  * flipHorizontal.java
