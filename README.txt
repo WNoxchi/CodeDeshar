@@ -17,5 +17,6 @@ CS106A - Programming Methodology
   (I'm using iTunes U which has everything organized for this course)
   Stanford 2007 Lectures: https://www.youtube.com/view_play_list?p=84A56BC7F4A1F852
   Course Page:    http://web.stanford.edu/class/cs106a/
+  Assignments:    http://web.stanford.edu/class/archive/cs/cs106a/cs106a.1124/assignments.html
   Class Guide:    https://github.com/NatashaTheRobot/Stanford-CS-106A/wiki/Stanford-Introduction-To-Computer-Science-Programming-Methodology-CS106A-Class-Guide
 
