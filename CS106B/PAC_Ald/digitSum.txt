@@ -1,0 +1,16 @@
+/*
+ * Function: digitSum
+ * ------------------
+ * CS106B Programming Abstractions
+ * Programming Abstractions in C++: 1.7 Statements: The while statement
+ * 25-Feb-2016 22:58
+ */
+
+int digitSum(int n) {
+    int sum = 0;
+    while (n > 0) {
+        sum += n % 10;
+        n /= 10;
+    }
+    return sum;
+}
