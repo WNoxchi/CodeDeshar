@@ -25,7 +25,6 @@ int strToInt (const char string[])
 
 int main (void)
 {
-    int strToInt (const char string[]);
 
     printf ("%i\n", strToInt("245"));
     printf ("%i\n", strToInt("100") + 25);
