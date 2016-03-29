@@ -1,5 +1,5 @@
 // CS50x - Intro to Computer Science
-// Programming in C - Exercise 10.11
+// Programming in C - Exercise 10.12
 // WH Noxchi - 29-Mar-2016 00:08 - 29-Mar-2016 00:45
 
 /** Extend strToInt from Program 10.11 st if the first char of the string
