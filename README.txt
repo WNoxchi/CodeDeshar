@@ -5,6 +5,16 @@ This repository is documentation of my learning Computer Science / Informatics &
 Blog: http://wnoxchi.blogspot.com/
 
 CS Courses:
+------------------------------------------------------------------------------------------
+CS50x - Intro to Computer Science
+
+CS106B - Programming Abstractions
+
+6.00.2.x - Intro to Data Science
+
+COMPLETE:
+------------------------------------------------------------------------------------------
+6.00.1.x - Intro to CS & Programming
 
 SICP/CS61A - Structure & Interpretation of Computer Programs
   MIT 6.001 1986 Lectures:  https://www.youtube.com/playlist?list=PLE18841CABEA24090
