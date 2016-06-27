@@ -10,8 +10,6 @@ CS50x - Intro to Computer Science
 
 CS106B - Programming Abstractions
 
-6.00.2.x - Intro to Data Science
-
 COMPLETE:
 ------------------------------------------------------------------------------------------
 6.00.1.x - Intro to CS & Programming
