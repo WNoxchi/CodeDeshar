@@ -67,7 +67,7 @@ def vecNormW(W):
 def calcGradE(yn, xn, w):
     xn = np.array(xn)
     w = np.array(w)
-    return np.array((yn * xn) / (1 + np.exp(yn * np.transpose(w).dot(xn))))
+    return np.array((yn * xn) / (1 + np.exp(yn * np.transpose(w).dot(xn))))     #here's where my sign error was! Missing (-) sign on return
     # return np.divide(np.multiply(yn, xn),
     #                              (1 + np.exp(np.multiply(yn,
     #                                          np.transpose(w).dot(xn)))))
