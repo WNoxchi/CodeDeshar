@@ -1,0 +1,9 @@
+questions.txt
+
+Computer Science 50
+Problem Set 3
+
+0. 3 x 3
+1. 2D array
+2. void greed(void);
+3. void init(void), void draw(void), bool move(int tile), bool won(void)
