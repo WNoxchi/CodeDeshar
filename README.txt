@@ -10,14 +10,14 @@ CS50x - Intro to Computer Science [edX]
 
 CS106B - Programming Abstractions [iTunesU]
 
-6.00.2x - Intro to CS [edX]
-
 
 Completed Courses:
 ------------------------------------------------------------------------------------------
 CS1156x - Learning from Data [edX]
+  --> Caltech Machine Learning course
 
-6.00.1.x - Intro to CS & Programming  [edX]
+6.00.1x - Intro to CS & Programming  [edX]
+6.00.2x - Intro to CS [edX]
 
 SICP/CS61A - Structure & Interpretation of Computer Programs
   MIT 6.001 1986 Lectures:  https://www.youtube.com/playlist?list=PLE18841CABEA24090
