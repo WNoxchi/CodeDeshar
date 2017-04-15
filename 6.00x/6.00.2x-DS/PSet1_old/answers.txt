@@ -1,0 +1,12 @@
+PSET 1  -   19-Mar-2016 01:00
+
+PROBLEM 1A:     <except \\ except IOError: \\ except IOError as e:>
+
+PROBLEM 1B:     Line 8
+
+PROBLEM 1C:     wordlist = string.split(line, ',') \\ wordlist = line.split(",")
+
+NUMPY/PYLAB:
+    1:          Earthquake Magnitude in Japan from 3/9-3/12
+    2:          Time
+    3:          Magnitude

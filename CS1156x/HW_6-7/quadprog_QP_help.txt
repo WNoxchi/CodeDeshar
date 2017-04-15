@@ -1,0 +1,48 @@
+# solve_qp(...)
+#     Solve a strictly convex quadratic program
+#
+#     Minimize     1/2 x^T G x - a^T x
+#     Subject to   C.T x >= b
+#
+#     This routine uses the the Goldfarb/Idnani dual algorithm [1].
+#
+#     References
+#     ---------
+#     ... [1] D. Goldfarb and A. Idnani (1983). A numerically stable dual
+#         method for solving strictly convex quadratic programs.
+#         Mathematical Programming, 27, 1-33.
+#
+#     Parameters
+#     ----------
+#     G : array, shape=(n, n)
+#         matrix appearing in the quadratic function to be minimized
+#     a : array, shape=(n,)
+#         vector appearing in the quadratic function to be minimized
+#     C : array, shape=(n, m)
+#         matrix defining the constraints under which we want to minimize the
+#         quadratic function
+#     b : array, shape=(m), default=None
+#         vector defining the constraints
+#     meq : int, default=0
+#         the first meq constraints are treated as equality constraints,
+#         all further as inequality constraints (defaults to 0).
+#     factorized : bool, default=False
+#         If True, then we are passing :math:`R^{−1}` (where :math:`G = R^T R`)
+#         instead of the matrix G in the argument G.
+#
+#     Returns
+#     -------
+#     x : array, shape=(n,)
+#         vector containing the solution of the quadratic programming problem.
+#     f : float
+#         the value of the quadratic function at the solution.
+#     xu : array, shape=(n,)
+#         vector containing the unconstrained minimizer of the quadratic function
+#     iterations : tuple
+#         2-tuple. the first component contains the number of iterations the
+#         algorithm needed, the second indicates how often constraints became
+#         inactive after becoming active first.
+#     lagrangian : array, shape=(m,)
+#         vector with the Lagragian at the solution.
+#     iact : array
+#         vector with the indices of the active constraints at the solution.

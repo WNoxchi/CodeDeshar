@@ -1,0 +1,87 @@
+/*
+ * File: NameSurferEntry.java
+ * --------------------------
+ * This class represents a single entry in the database.  Each
+ * NameSurferEntry contains a name and a list giving the popularity
+ * of that name for each decade stretching back to 1900.
+ */
+
+import acm.util.*;
+import java.util.*;
+
+public class NameSurferEntry implements NameSurferConstants {
+
+	/* Constructor: NameSurferEntry(line) */
+	/**
+	 * Creates a new NameSurferEntry from a data line as it appears
+	 * in the data file.  Each line begins with the name, which is
+	 * followed by integers giving the rank of that name for each
+	 * decade.
+	 */
+
+	private String name = "";	// need to initialize name
+	private String nums = "";	// string of number values in arraylist
+	private int[] decadeArray = new int[NDECADES];	// setup arraylist of ints. length is # of decades
+
+	public NameSurferEntry(String line) {
+		// You fill this in //
+		name = line.substring(0, line.indexOf(" "));
+			/* this separates the name from the numbers in the list by starting from
+			 * the first element, and ending at the index corresp. to the space
+			 * separating the name from the rank values. */
+		nums = line.substring(line.indexOf(" ")).trim(); // .trim() will cut out spaces
+		separateNums(nums);
+	}
+
+	private void separateNums(String nums) {
+		for (int parts = 0; parts < NDECADES - 1; parts++) {
+//			String slice = nums.substring(0, nums.indexOf(" ")); // alternate way
+			decadeArray[parts] = Integer.parseInt(nums.substring(0, nums.indexOf(" ")));
+			nums = nums.substring(nums.indexOf(" ") + 1);
+		}
+
+		decadeArray[NDECADES - 1] = Integer.parseInt(nums);
+	}
+
+	/* Method: getName() */
+	/**
+	 * Returns the name associated with this entry.
+	 */
+	public String getName() {
+		// You need to turn this stub into a real implementation //
+		// return null;
+		return name;
+	}
+
+	/* Method: getRank(decade) */
+	/**
+	 * Returns the rank associated with an entry for a particular
+	 * decade.  The decade value is an integer indicating how many
+	 * decades have passed since the first year in the database,
+	 * which is given by the constant START_DECADE.  If a name does
+	 * not appear in a decade, the rank value is 0.
+	 */
+	public int getRank(int decade) {
+		// You need to turn this stub into a real implementation //
+		// return 0;
+		return decadeArray[decade];
+	}
+
+	/* Method: toString() */
+	/**
+	 * Returns a string that makes it easy to see the value of a
+	 * NameSurferEntry.
+	 */
+	public String toString() {
+		// You need to turn this stub into a real implementation //
+		String result = "";
+		result += "\"" + name + " [";
+		for (int i = 0; i < NDECADES - 1; i++) {	//	going through all but last item
+			result += decadeArray[i] + " ";
+		}
+		result += decadeArray[NDECADES] + "]\"";	//	special case for last item
+
+		return result;
+		// return "";
+	}
+}

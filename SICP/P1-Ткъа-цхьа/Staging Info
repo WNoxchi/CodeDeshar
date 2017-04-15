@@ -1,0 +1,36 @@
+;-------------------------------------------------------------------------------
+;   SICP / CS61A    |   Project 1: BlackJack    |   Staging Area
+;-------------------------------------------
+;   Start:  07-Jan-2016 16:40
+;-------------------------------------------------------------------------------
+
+List of files for 'Normal' BlackJack:
+
+assert.scm
+best-total.scm
+    takes a hand (a sentence of card words) as arg.
+    >>returns total number of points in hand.
+    ->  should return largest possible total <= 21.
+    ad: (best-total '(ad 8s)) >>> 19
+        (best-total '(ad as 9h)) >>> 14
+        (best-total) '(ad as 9h)) >>> 21
+
+dealer-sensitive.scm
+higher-order.scm
+majority-strategy.scm
+play-n.scm
+reckless.scm
+stop-at-17.scm
+stop-at.scm
+suit-strategy.scm
+test-best-total.scm
+test-dealer-sensitive.scm
+test-majority-strategy.scm
+test-reckless.scm
+test-stop-at-17.scm
+test-stop-at.scm
+test-suit-strategy.scm
+test-valentine-strategy.scm
+test_all.sh
+arzhjack.scm
+valentine-strategy.scm

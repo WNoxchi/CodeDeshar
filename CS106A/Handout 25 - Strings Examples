@@ -1,0 +1,59 @@
+// HANDOUT 25 - STRING EXAMPLES
+
+// checking for palindromes
+
+public boolean isPalindrome(String str) {
+    for (int i = 0; i < str.length() / 2; i++) {
+        if (str.charAt(i) != str.charAt(str.length() - (i + 1))) {
+            return false;
+        }
+    }
+    return true;
+}
+
+// reversing strings and a simpler version of checking for palindromes
+
+public String reverseString(String str) {
+    String result = "";
+    for (int i = 0; i < str.length(); i++) {
+        result = str.charAt(i) + result;
+    }
+    return result;
+}
+
+public voolean simpleIsPalindrome(String str) {
+    return (str.equals(reverseString(str)));
+}
+
+// counting uppercase characters
+
+import acm.prgoram.*;
+
+public class CountUppercase extends ConsoleProgram {
+
+    private int countUppercase(String str) {
+        int upperCount = 0;
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (Character.isUpperCase(ch)) {
+                upperCount++;
+            }
+        }
+        return upperCount;
+    }
+
+    public void run() {
+        String str = readLine("Enter String: ");
+        println(countUppercase(str) + " upper case letters");
+    }
+}
+
+// replace first occurence
+
+public String replaceFirstOccurrence(String str, String orig, String repl) {
+    int index = str.indexOf(orig);
+    if (index != -1) {
+        str = str.substring(0, index) + repl + str.substring(index + orig.length());
+    }
+    return str;
+}

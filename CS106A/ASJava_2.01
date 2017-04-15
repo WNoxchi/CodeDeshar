@@ -1,0 +1,64 @@
+//  CS106A - Art & Sci of Java: exercises
+// 2.01: hello world
+
+/*
+ * File: HelloProgram.java
+ * This program displays "hello, world" on the screen.
+ * It is inspired by the first program in Brian
+ * Kerninghan and Dennis Ritchie's classic book,
+ * The C Programming Language.
+ */
+
+import acm.graphics.*;
+import acm.program.*;
+
+public class MarshalduLatta extends GraphicsProgram {
+  public void run() {
+    add(new GLabel("Marshal du, Latta"), 100, 75);
+    add(new GLabel ("Wayne H. Noxchi,"), 25, 250);
+    add(new GLabel ("16 Ogoi, 2015"), 25, 265);
+  }
+}
+
+
+//  CS106A - Art & Sci of Java: exercises
+// 2.03:  modify to print add 3 integers
+
+/*
+ * File: Add3Integers.java
+ * -----------------------
+ * This program adds two integers and prints their sum.
+ */
+
+import acm.program.*;
+
+public class Add3Integers extends ConsoleProgram {
+  public void run() {
+    println("This program adds three integers.");
+    int n1 = readInt("Enter n1: ");
+    int n2 = readInt("Enter n2: ");
+    int n3 = readInt("Enter n3: ");
+    int total = n1 + n2 + n3;
+    println("The total is " + total + ".");
+  }
+}
+
+
+/*
+ * File: Add2Integers.java
+ * -----------------------
+ * This program adds two integers and prints their sum.
+ */
+/*
+import acm.program.*;
+
+public class Add2Integers extends ConsoleProgram {
+  public void run {
+    println("This program adds two integers.");
+    int n1 = readInt("Enter n1: ");
+    int n2 = readInt("Enter n2: ");
+    int total = n1 + n2;
+    println("The total is ) + total + ".");
+  }
+}
+*/

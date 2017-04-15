@@ -1,0 +1,26 @@
+08-Jul-2016 08:20 - start
+08-Jul-2016 08:50 - done with Interface
+08-Jul-2016 09:39 - taking a break. Heat.
+<<BREAK>>
+09-Jul-2016 16:46 - back at work.
+09-Jul-2016 16:48 - restarting from scratch - cleaner
+09-Jul-2016 16:59 - guessing I should put enum inside public? saw such for an
+                    Austrian student on c++.com -- will test
+09-Jul-2016 17:25 - think I'm done writing code. time for testing
+<<BERAK>>
+09-Jul-2016 17:57 - back to debugging
+09-Jul-2016 18:05 - trying to figure out how to define enum type in header file
+                    C++ doesn't allow forward forward references to enum types
+<<BREAK>>
+10-Jul-2016 09:03 - back at work
+10-Jul-2016 09:32 - I dont know why the compiler's saying 'std' is an
+                    undeclared identifier when it seems to work in other cases
+10-Jul-2016 09:37 - Good God didnt have #includes in header file
+10-Jul-2016 09:41 - Okay, Im going to rewrite this from scratch.
+<<BREAK>>
+10-Jul-2016 14:52 - Just got back to work, rewrote it, used Chinese github
+                    guys's thing for help, works. Finally. Interestingly all
+                    the little potential points of failure I spotted as I wrote
+                    didn't get in the way.
+
+08-Jul-2016 08:20 - 9:39 | 09-Jul-2016 16:46 - 17:25 | 17:57 - 09-Jul-2016 18:05 | 10-Jul-2016 09:03 - 09:41 | 14:52
