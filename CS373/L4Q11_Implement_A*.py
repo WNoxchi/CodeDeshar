@@ -1,5 +1,5 @@
 # Udacity CS373 AI for Robotics - Ls4 - Search - Q11: Implement A*
-# Wayne H Nixalo  - 2017-Apr-22 19:02
+# Wayne H Nixalo  - 2017-Apr-22 19:02 - 19:42
 
 # -----------
 # User Instructions:
@@ -48,11 +48,14 @@ def search(grid,init,goal,cost,heuristic):
     expand = [[-1 for col in range(len(grid[0]))] for row in range(len(grid))]
     action = [[-1 for col in range(len(grid[0]))] for row in range(len(grid))]
 
+    h = lambda r, c: heuristic[r][c]
+
     x = init[0]
     y = init[1]
     g = 0
+    f = g + h(x, y)
 
-    open = [[g, x, y]]
+    open = [[f, g, x, y]]
 
     found = False  # flag that is set when search is complete
     resign = False # flag set if we can't find expand
@@ -66,22 +69,54 @@ def search(grid,init,goal,cost,heuristic):
             open.sort()
             open.reverse()
             next = open.pop()
-            x = next[1]
-            y = next[2]
-            g = next[0]
+            x = next[2]
+            y = next[3]
+            g = next[1]
             expand[x][y] = count
             count += 1
 
             if x == goal[0] and y == goal[1]:
                 found = True
+            # expand winning element and add to new open list
             else:
-                for i in range(len(delta)):
-                    x2 = x + delta[i][0]
-                    y2 = y + delta[i][1]
+                for d in xrange(len(delta)):
+                    x2 = x + delta[d][0]
+                    y2 = y + delta[d][1]
                     if x2 >= 0 and x2 < len(grid) and y2 >=0 and y2 < len(grid[0]):
                         if closed[x2][y2] == 0 and grid[x2][y2] == 0:
                             g2 = g + cost
-                            open.append([g2, x2, y2])
+                            f2 = g2 + h(x2, y2)
+                            open.append([f2, g2, x2, y2])
                             closed[x2][y2] = 1
 
     return expand
+
+x = search(grid,init,goal,cost,heuristic)
+for i in xrange(len(x)):
+    print(x[i])
+
+# my first attempt:
+#   < ................ >
+#             else:
+#                 for d in xrange(len(delta)):
+#                     x2 = x + delta[d][0]
+#                     y2 = y + delta[d][1]
+#                     if x2 >= 0 and x2 < len(grid) and y2 >=0 and y2 < len(grid[0]):
+#                         if closed[x2][y2] == 0 and grid[x2][y2] == 0:
+#                             g2 = g + cost
+#                             move_stack.append([g2, x2, y2])
+#                             # open.append([g2, x2, y2])
+#                             # closed[x2][y2] = 1
+#                 min_cost = [-1,-1]
+#                 for i in xrange(len(move_stack)):
+#                     g = move_stack[i][0]
+#                     r = move_stack[i][1]
+#                     c = move_stack[i][2]
+#                     f = g + h(r,c)
+#                     if f < min_cost[0] or min_cost[0] < 0:
+#                         min_cost[0] = f
+#                         min_cost[1] = i
+#                 g2, x2, y2 = move_stack[i][0], move_stack[i][1], move_stack[i][2]
+#                 open.append([g2, x2, y2])
+#                 closed[x2][y2] = 1
+#   < ................ >
