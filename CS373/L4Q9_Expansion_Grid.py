@@ -84,7 +84,10 @@ def search(grid,init,goal,cost):
                             closed[x2][y2] = 1
     return expand
 
-# print search(grid,init,goal,cost)
+# for row in grid:
+#     print row
+# print
+#
 # exgrid = search(grid, init, goal, cost)
 # for i in xrange(len(exgrid)):
 #     print exgrid[i]
