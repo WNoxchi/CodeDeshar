@@ -1,3 +1,11 @@
 Tuloy
 Google
 grav_calcs.txt
+
+# exec files
+TimeKeeper
+
+### may use below to ignore all files w/o extensions
+*       # ignore all
+!*.*    # unignore all w/ extensns
+!*/     # unignore all dirs
