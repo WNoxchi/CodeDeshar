@@ -126,9 +126,6 @@ void checkTime(std::string dateString = "") {
     // check if date logged
     while (!timelog.eof()) {        // NOTE: could this give an off-by-1 error?
         std::getline(timelog, buffer);
-        /* DEBUG */
-        // std::cout << "Line: " << buffer << std::endl;
-        /* DEBUG */
         buffer = buffer.substr(0, 20);
         if (dateString.compare(buffer) == 0) {
             total = 0;
@@ -138,10 +135,6 @@ void checkTime(std::string dateString = "") {
     if (total < 0) {
         std::cout << dateString << " not found in log." << std::endl;
         timelog.close();
-        /* DEBUG */
-        // std::cout << "fileline buffer: [[[ " << buffer << " ]]]" << std::endl;
-        // std::cout << "dateStrong comp: [[[ " << dateString << " ]]]\n";
-        /* DEBUG */
         return;
     }
     while(!timelog.eof() || dateString.compare(buffer) == 0) {
