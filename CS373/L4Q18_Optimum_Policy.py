@@ -70,3 +70,10 @@ def optimum_policy(grid,goal,cost):
 output = optimum_policy(grid,goal,cost)
 for row in output:
     print row
+
+# OUT:
+['v', ' ', 'v', 'v', 'v', 'v']
+['v', ' ', 'v', 'v', 'v', 'v']
+['v', ' ', 'v', 'v', 'v', 'v']
+['v', ' ', '>', '>', '>', 'v']
+['>', '>', '^', '^', ' ', '*']

@@ -36,7 +36,7 @@ def move(p, U):
     return q
 #
 # ADD CODE HERE
-for i in xrange(len(measurements):
+for i in xrange(len(measurements)):
     p = sense(p, measurements[i])
     p = move(p, motions[i])
 #

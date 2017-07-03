@@ -203,3 +203,11 @@ v0.01: 2017-Jun-28 14:37-51 - basic functionality
 // 	std::string datetime = std::ctime(&time_now);
 // 	std::cout << datetime << std::endl;
 // }
+
+// more time function stuff
+// string (const string& str, size_t pos, size_t len = npos);
+// std::time_t time_today = std::chrono::system_clock::to_time_t(
+//                                 std::chrono::system_clock::now());
+// // std::string datetime   = std::ctime(&time_today);
+//
+// std::string datetime = std::string(std::ctime(&time_today), 0, 10);
