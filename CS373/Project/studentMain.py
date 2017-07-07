@@ -75,25 +75,33 @@ def estimate_next_pos(measurement, OTHER = None):
     # mean of all previous distances between position updates; angle between
     # last & current position updates + mean angle change between all updates.
 
-    mean_dist, angl, mean_d_angl = 0., 0., 0.
-    if not OTHER: OTHER = [mean_d_angl]
-    OTHER.append(measurement)
-    if len(OTHER) > 2:
-        mean_dist  += distance_between(OTHER[2], OTHER[1])
-        angl       += atan2(OTHER[2][1]-OTHER[1][1], OTHER[2][0]-OTHER[1][0])
-    mean_d_angl = (angl - OTHER[0]) % (2*pi)
+    mean = lambda x : sum(x) / float(len(x))
 
-    OTHER[0] = mean_d_angl;
-    if len(OTHER) > 2:
-        OTHER[1] = OTHER[2]
-        OTHER.pop()
-    xy_estimate = [measurement[0] + mean_dist * cos(angl + mean_d_angl),
-                   measurement[1] + mean_dist * sin(angl + mean_d_angl)]
+    if not OTHER:
+        OTHER = []
+    dist, theta = [], []
+    avgdist, avgdtheta = 0., 0.
+    OTHER.append(measurement)
+    if len(OTHER) > 1:
+        for i in xrange(len(OTHER)-1):
+            dist.append(distance_between(OTHER[i+1], OTHER[i]))
+            theta.append(atan2(OTHER[i+1][1]-OTHER[i][1], OTHER[i+1][0]-OTHER[i][0]))
+    else:
+        dist, theta = [0.], [0.]
+    avgdist  = mean(dist)
+
+    dtheta = []
+    if len(theta) > 1:
+        for i in xrange(len(theta)-1):
+            dtheta.append((theta[i+1]-theta[i]) % (2*pi))
+        avgdtheta = mean(dtheta)
+
+    xy_estimate = [measurement[0] + avgdist * cos(theta[-1] + avgdtheta),
+                   measurement[1] + avgdist * sin(theta[-1] + avgdtheta)]
 
     # You must return xy_estimate (x, y), and OTHER (even if it is None)
     # in this order for grading purposes.
     return xy_estimate, OTHER
-
 
 # A helper function you may find useful.
 def distance_between(point1, point2):
