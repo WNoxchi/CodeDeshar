@@ -351,6 +351,12 @@ def estimate_next_pos(measurement, OTHER = None):
     # in this order for grading purposes.
     return xy_estimate, OTHER
 
+# OUTPUT:
+# Test bot 1 successfully localized in 3 measurements.
+# Test bot 2 successfully localized in 3 measurements.
+# Test bot 3 successfully localized in 3 measurements.
+# You got the BEST solution. Since the target robot is moving and sensing without noise, we can perfectly understand its motion with only three measurements!
+
 # For some reason this version doesn't quite solve the problem properly...
 # I'm going to leave my final answer as the above version for now.
 # XXX: FINAL WORKING VERSION:
@@ -378,3 +384,9 @@ def estimate_next_pos(measurement, OTHER = None):
     # You must return xy_estimate (x, y), and OTHER (even if it is None)
     # in this order for grading purposes.
     return xy_estimate, OTHER
+
+# OUTPUT:
+# Test bot 1 successfully localized in 2 measurements.
+# Test bot 2 successfully localized in 3 measurements.
+# Test bot 3 successfully localized in 3 measurements.
+# How did you localize it in fewer than 3 measurements? Something's fishy here...
