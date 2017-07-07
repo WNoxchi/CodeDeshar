@@ -359,6 +359,8 @@ def estimate_next_pos(measurement, OTHER = None):
 
 # For some reason this version doesn't quite solve the problem properly...
 # I'm going to leave my final answer as the above version for now.
+# EDIT: yeah, I'm deffinitely not doing the d_theta & mean_dist updates
+# correctly.
 # XXX: FINAL WORKING VERSION:
 def estimate_next_pos(measurement, OTHER = None):
     """Estimate the next (x, y) position of the wandering Traxbot
