@@ -2,6 +2,8 @@ Tuloy
 Google
 grav_calcs.txt
 
+*.pyc
+
 # exec files
 TimeKeeper
 
