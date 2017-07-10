@@ -1,5 +1,32 @@
-# 2017-Jul-10 16:45 / 2017-Jul-10 17:33
+################################################
+# 2017-Jul-10 17:43
+# CHASE ALGORITHM V1    ########################
+#
+# HUNTING LOOP:
+#
+# REPEAT UNTIL CAUGHT:
+#     PREDICT WHERE RUNAWAY IS NOW
+#
+#     FOR (TARGET_DST / HUNTER_SPD):
+#
+#         PREDICT WHERE RUNAWAY WILL BE NEXT TIMESTEP
+#
+#     MOVE THERE
+################################################
 
+
+
+
+
+
+
+
+
+
+
+
+################################################
+# 2017-Jul-10 16:45 / 2017-Jul-10 17:33
 # CHASE ALGORITHM V0    ########################
 #
 # HUNTING LOOP:
