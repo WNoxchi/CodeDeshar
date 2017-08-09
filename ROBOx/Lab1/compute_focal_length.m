@@ -9,7 +9,7 @@ function [ f ] = compute_focal_length( d_ref, f_ref, pos )
 % - f: 1 by n, camera focal length
 
 % Put your CODE here
-f =
+f = f_ref * ( d_ref - pos ) / d_ref
 
 end
 
