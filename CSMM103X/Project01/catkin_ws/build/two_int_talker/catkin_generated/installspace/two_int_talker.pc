@@ -1,0 +1,8 @@
+prefix=/home/ccc_v1_w_NTQxM_86384/asn17208_Project_1/asn17209_Project_1/work/catkin_ws/install
+
+Name: two_int_talker
+Description: Description of two_int_talker
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/ccc_v1_w_NTQxM_86384/asn17208_Project_1/asn17209_Project_1/work/catkin_ws/install/lib 
+Requires: message_runtime

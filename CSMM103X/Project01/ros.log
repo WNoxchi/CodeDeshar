@@ -1,0 +1,25 @@
+ROSCORE: ... logging to /home/ccc_v1_w_NTQxM_86384/asn17208_Project_1/asn17209_Project_1/work/.ros/log/0673140c-9f29-11e7-ae98-06f360e4abc1/roslaunch-ip-172-31-19-100-28089.log
+ROSCORE: Checking log directory for disk usage. This may take awhile.
+ROSCORE: Press Ctrl-C to interrupt
+ROSCORE: Done checking log file disk usage. Usage is <1GB.
+ROSCORE: ]2;roscore
+ROSCORE: [1mstarted roslaunch server http://ip-172-31-19-100:44626/[0m
+ROSCORE: ros_comm version 1.11.20
+ROSCORE: 
+ROSCORE: 
+ROSCORE: SUMMARY
+ROSCORE: ========
+ROSCORE: 
+ROSCORE: PARAMETERS
+ROSCORE:  * /rosdistro: indigo
+ROSCORE:  * /rosversion: 1.11.20
+ROSCORE: 
+ROSCORE: NODES
+ROSCORE: 
+ROSCORE: auto-starting new master
+ROSCORE: [1mprocess[master]: started with pid [28172][0m
+ROSCORE: [1mROS_MASTER_URI=http://ip-172-31-19-100:52385/[0m
+ROSCORE: ]2;roscore http://ip-172-31-19-100:52385/
+ROSCORE: [1msetting /run_id to 0673140c-9f29-11e7-ae98-06f360e4abc1[0m
+ROSCORE: [1mprocess[rosout-1]: started with pid [28198][0m
+ROSCORE: started core service [/rosout]
